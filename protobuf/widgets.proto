@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package PDUI;
+
+message PBScaffold {
+  PBExpression appBar = 1;
+  PBExpression body = 2;
+}
+
+message PBAppBar {
+  string backgroundColor = 1;
+  string title = 2;
+}
+
+message PBCenter {
+  PBExpression child = 1;
+}
+
+message PBText {
+  string data = 1;
+}
+
+message PBColumn {
+  repeated PBExpression children = 1;
+}
+
+message PBElevatedButton {
+  PBExpression child = 1;
+  // PBFn onPressed = 2;
+}
+
+enum PBDataType {
+  STRING = 0;
+  INT = 1;
+  FLOAT = 2;
+  BOOLEAN = 3;
+}
+
+message PBFnParameter {
+  string name = 1;
+  PBDataType type = 2;
+  oneof value {
+    string stringValue = 3;
+    int64 intValue = 4;
+    float floatValue = 5;
+    bool boolValue = 6;
+  }
+}
+
+message PBFn {
+  optional string name = 1;
+  // repeated PBFnParameter parameters = 2;
+  map<string, PBFnParameter> params = 2;
+  PBDataType returnType = 3;
+}
+
+message PBExpression {
+  optional string key = 1;
+  string identity = 2;
+  oneof payload {
+    PBScaffold scaffold = 3;
+    PBCenter center = 4;
+    PBText text = 5;
+    PBAppBar appBar = 6;
+    PBColumn column = 7;
+    PBElevatedButton elevatedButton = 8;
+    PBFn function = 9;
+  }
+}

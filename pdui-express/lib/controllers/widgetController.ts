@@ -64,8 +64,6 @@ export async function getWidget(request: Request, response: Response) {
                 }
             }
         } else {
-            console.log(route.handler().toExpression());
-
             response.status(200).json({
                 payload: PBExpression.toBinary(route.handler().toExpression()),
             });

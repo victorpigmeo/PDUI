@@ -26,7 +26,7 @@ message PBColumn {
 
 message PBElevatedButton {
   PBExpression child = 1;
-  // PBFn onPressed = 2;
+  PBFnExpression onPressed = 2;
 }
 
 enum PBDataType {
@@ -41,29 +41,40 @@ message PBFnParameter {
   PBDataType type = 2;
   oneof value {
     string stringValue = 3;
-    int64 intValue = 4;
+    int32 intValue = 4;
     float floatValue = 5;
-    bool boolValue = 6;
+    bool booleanValue = 6;
   }
 }
 
 message PBFn {
   optional string name = 1;
-  // repeated PBFnParameter parameters = 2;
   map<string, PBFnParameter> params = 2;
-  PBDataType returnType = 3;
+  map<string, PBFnExpression> body = 3;
+}
+
+message PBDebugPrint{
+  PBExpression expression = 1;
+}
+
+message PBFnExpression {
+  string identity = 1;
+  oneof payload {
+    PBFn generic = 2;
+    PBDebugPrint debugPrint = 3;
+  }
 }
 
 message PBExpression {
   optional string key = 1;
   string identity = 2;
   oneof payload {
-    PBScaffold scaffold = 3;
-    PBCenter center = 4;
-    PBText text = 5;
-    PBAppBar appBar = 6;
-    PBColumn column = 7;
-    PBElevatedButton elevatedButton = 8;
-    PBFn function = 9;
+    string rawString = 3;
+    PBScaffold scaffold = 4;
+    PBCenter center = 5;
+    PBText text = 6;
+    PBAppBar appBar = 7;
+    PBColumn column = 8;
+    PBElevatedButton elevatedButton = 9;
   }
 }

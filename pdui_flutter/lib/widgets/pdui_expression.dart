@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'proto_out/widgets.pb.dart';
-import 'expression_parser.dart';
+import '../core/pdui_expression_parser.dart';
 
 class PduiExpression {
   PBExpression pbExpression;
@@ -9,6 +9,6 @@ class PduiExpression {
   PduiExpression(this.pbExpression);
 
   Widget resolve() {
-    return ExpressionParser.parse(pbExpression);
+    return PduiExpressionParser.parse(pbExpression);
   }
 }

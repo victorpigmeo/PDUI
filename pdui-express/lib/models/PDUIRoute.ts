@@ -1,4 +1,4 @@
-import type { PDUIWidget } from "../widgets/PDUIWidget";
+import type { PDUIWidget } from "../../models";
 
 export class PDUIRoute {
     id: string;

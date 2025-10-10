@@ -1,4 +1,7 @@
 import { PDUIWidget } from "pdui-express/models";
+
+import { PDUIDebugPrint, PDUIGenericFn } from "pdui-express/core";
+
 import {
     PDUIAppBar,
     PDUICenter,
@@ -22,7 +25,24 @@ export class HomeController {
                         new PDUIText({ data: "Texto2" }),
                         new PDUIText({ data: "Texto3" }),
                         new PDUIElevatedButton({
-                            child: new PDUIText({ data: "Butão" }),
+                            child: new PDUIText({ data: "Press me" }),
+                            onPressed: new PDUIGenericFn({
+                                params: {
+                                    num1: 22,
+                                    num2: 15,
+                                },
+                                body: () => {
+                                    const steps = [];
+                                    const msg = "Hello, World!";
+                                    const conta = 22 + 15;
+
+                                    steps.push(new PDUIDebugPrint(msg));
+                                    steps.push(new PDUIDebugPrint(conta));
+
+                                    return steps;
+                                },
+                            }),
+                            // onPressed: new PDUIDebugPrint("OI"),
                         }),
                     ],
                 }),

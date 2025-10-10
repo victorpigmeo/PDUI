@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'proto_out/widgets.pb.dart';
-import 'expression_parser.dart';
+import '../core/pdui_expression_parser.dart';
 
 class PduiColumn {
   PBExpression pbColumn;
@@ -12,7 +12,7 @@ class PduiColumn {
     List<Widget> children = List.empty(growable: true);
 
     for (var child in pbColumn.column.children) {
-      children.add(ExpressionParser.parse(child));
+      children.add(PduiExpressionParser.parse(child));
     }
 
     return Column(

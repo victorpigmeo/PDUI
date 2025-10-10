@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       home: PDUIHome(
         title: "PDUI App",
         rootExpressionId: "home",
-        useCache: true,
+        useCache: false,
       ),
     );
   }

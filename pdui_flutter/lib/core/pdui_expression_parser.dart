@@ -31,12 +31,13 @@ class PduiExpressionParser {
 }
 
 class PduiFnExpressionParser {
-  static PduiFn parse(PBFnExpression pbFnExpression) {
+  static parse(PBFnExpression pbFnExpression) {
     switch (pbFnExpression.identity) {
       case "genericFn":
         return PduiGenericFn(pbFnExpression).resolve();
       case "debugPrint":
-        return PduiDebugPrint(pbFnExpression.debugPrint).resolve();
+        PduiDebugPrint(pbFnExpression.debugPrint).resolve();
+        break;
       default:
         throw Error();
     }

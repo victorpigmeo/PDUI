@@ -26,7 +26,6 @@ export class PDUIGenericFn extends PDUIFn {
     }
 
     override toFnExpression(): PBFnExpression {
-        console.log(this.params);
         return {
             identity: "genericFn",
             payload: {

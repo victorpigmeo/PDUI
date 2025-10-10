@@ -92,7 +92,6 @@ class _PDUIHomeState extends State<PDUIHome> {
     Response response,
     String? clientCacheId,
   ) async {
-    print(jsonDecode(response.body));
     final bool cacheAlive = jsonDecode(response.body)["cacheAlive"];
 
     if (cacheAlive) {

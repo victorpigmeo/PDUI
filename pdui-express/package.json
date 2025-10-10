@@ -1,8 +1,14 @@
 {
     "name": "pdui-express",
+    "description": "A SDUI library for the brave",
     "version": "0.0.1",
     "module": "index.ts",
     "type": "module",
+    "author": {
+        "name": "Victor Pigmeo",
+        "email": "victor.blq@gmail.com",
+        "url": "https://github.com/victorpigmeo/"
+    },
     "scripts": {
         "protobuild": "protoc --plugin ./node_modules/.bin/protoc-gen-ts --ts_out ./lib/widgets/proto-out -I ../protobuf/ ../protobuf/*"
     },
@@ -20,5 +26,15 @@
     },
     "peerDependencies": {
         "typescript": "^5"
-    }
+    },
+    "keywords": [
+        "best",
+        "sdui",
+        "flutter",
+        "library",
+        "bdc",
+        "bdui"
+    ],
+    "repository": "https://github.com/victorpigmeo/PDUI",
+    "license": "MIT"
 }

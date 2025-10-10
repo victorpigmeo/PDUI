@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* You can build your first app with a simple screen and some fns that works.

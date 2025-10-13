@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: PDUIHome(
+      home: PduiHome(
         title: "PDUI App",
         rootExpressionId: "home",
         useCache: false,

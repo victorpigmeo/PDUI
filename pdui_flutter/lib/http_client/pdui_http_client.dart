@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 
-class PDUIHttpClient {
+class PduiHttpClient {
   Future<http.Response> getExpression(
     String expressionId,
     String? cacheId,

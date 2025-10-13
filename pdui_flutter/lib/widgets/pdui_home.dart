@@ -8,8 +8,8 @@ import '../http_client/pdui_http_client.dart';
 import '../proto_out/pdui-proto-out.pb.dart';
 import 'pdui_expression.dart';
 
-class PDUIHome extends StatefulWidget {
-  const PDUIHome({
+class PduiHome extends StatefulWidget {
+  const PduiHome({
     super.key,
     required this.title,
     required this.rootExpressionId,
@@ -21,10 +21,10 @@ class PDUIHome extends StatefulWidget {
   final bool useCache;
 
   @override
-  State<PDUIHome> createState() => _PDUIHomeState();
+  State<PduiHome> createState() => _PduiHomeState();
 }
 
-class _PDUIHomeState extends State<PDUIHome> {
+class _PduiHomeState extends State<PduiHome> {
   final secureStorage = FlutterSecureStorage();
 
   Widget screen = Scaffold(
@@ -44,7 +44,7 @@ class _PDUIHomeState extends State<PDUIHome> {
   }
 
   void fetchHomeComponent() async {
-    var pduiHttpClient = PDUIHttpClient();
+    var pduiHttpClient = PduiHttpClient();
     String? clientCacheId = await getClientCacheId();
 
     pduiHttpClient

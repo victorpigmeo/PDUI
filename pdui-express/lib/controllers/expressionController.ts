@@ -4,19 +4,19 @@ import { PDUI } from "../init";
 import { v4 } from "uuid";
 
 import {
-    getCacheIdByWidgetId,
-    setCacheIdByWidgetId,
+    getCacheIdByExpressionId,
+    setCacheIdByExpressionId,
 } from "../cache/redisRepository";
 
 import { PDUIRoute } from "../models/PDUIRoute";
-import { PBExpression } from "../widgets/proto-out/widgets";
+import { PBExpression } from "../proto-out/pdui-proto-out.ts";
 
-export async function getWidget(request: Request, response: Response) {
-    const widgetId = request.params.widgetId!;
+export async function getExpression(request: Request, response: Response) {
+    const expressionId = request.params.expressionId!;
     const cacheId = request.query.cacheId;
 
     const route: PDUIRoute | undefined = PDUI.routes.find((route) => {
-        return route.id === widgetId;
+        return route.id === expressionId;
     });
 
     if (!route) {
@@ -25,7 +25,8 @@ export async function getWidget(request: Request, response: Response) {
     } else {
         if (PDUI.useCache) {
             if (cacheId) {
-                const savedCacheId = await getCacheIdByWidgetId(widgetId);
+                const savedCacheId =
+                    await getCacheIdByExpressionId(expressionId);
 
                 if (savedCacheId === cacheId) {
                     response.status(200).json({
@@ -36,8 +37,8 @@ export async function getWidget(request: Request, response: Response) {
                         //TODO: deduplicate this
                         buildAndSendResponse(route, false, savedCacheId);
                     } else {
-                        const newCacheId = await setCacheIdByWidgetId(
-                            widgetId,
+                        const newCacheId = await setCacheIdByExpressionId(
+                            expressionId,
                             v4(),
                         );
 
@@ -46,7 +47,7 @@ export async function getWidget(request: Request, response: Response) {
                     }
                 }
             } else {
-                const cacheId = await getCacheIdByWidgetId(widgetId);
+                const cacheId = await getCacheIdByExpressionId(expressionId);
 
                 if (cacheId) {
                     //TODO: deduplicate this
@@ -55,8 +56,8 @@ export async function getWidget(request: Request, response: Response) {
                     //Here the client didn't send the cacheId
                     //and the server does not have a cacheId for this expr
                     //so we create a new entry for this expr
-                    const newCacheId = await setCacheIdByWidgetId(
-                        widgetId,
+                    const newCacheId = await setCacheIdByExpressionId(
+                        expressionId,
                         v4(),
                     );
 
@@ -64,9 +65,7 @@ export async function getWidget(request: Request, response: Response) {
                 }
             }
         } else {
-            response.status(200).json({
-                payload: PBExpression.toBinary(route.handler().toExpression()),
-            });
+            buildAndSendResponse(route, undefined, undefined);
         }
     }
 

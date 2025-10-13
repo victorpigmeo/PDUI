@@ -38,8 +38,17 @@ export class HomeController {
                                     const msg = "Hello, World!";
                                     const conta = 22 + 15;
 
+                                    const column = new PDUIColumn({
+                                        children: [
+                                            new PDUIText({
+                                                data: "Test debugPrint",
+                                            }),
+                                        ],
+                                    });
+
                                     steps.push(new PDUIDebugPrint(msg));
                                     steps.push(new PDUIDebugPrint(conta));
+                                    steps.push(new PDUIDebugPrint(column));
 
                                     steps.push(
                                         new PDUINavigation({

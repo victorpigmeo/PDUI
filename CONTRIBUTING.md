@@ -16,17 +16,30 @@ You'll need `protoc` which is the Protobuf compiler on your `$PATH`;
     1. For example, the protobuf for some flutter widget should include AT LEAST the required parameters for that Widget;
     2. Use Flutter docs to know which params are required on the widget you want to code;
 4. Compile the protobuf message:
-    1. On the server library directory run `protoc` like this: (`bun run protobuild` for ExpressJS)
+    1. On the server library root directory:
+        If you're using `bun`(recomended):
+        ```bash 
+        bun run protobuild
+        ```
+        If you're using yarn:
+        ```bash 
+        yarn run protobuild
+        ```
+        If you're using npm:
+        ```bash 
+        npm run protobuild
+        ```
+        Or if you don't want to use any package manager:
         ```bash
-        protoc --plugin ./node_modules/.bin/protoc-gen-ts --ts_out ./lib/widgets/proto-out -I ../protobuf/ ../protobuf/*"
+        protoc --plugin ./node_modules/.bin/protoc-gen-ts --ts_out ./lib/proto-out -I ../protobuf/ ../protobuf/*
         ```
     2. On the mobile library directory run `protoc` like this:
         ```bash 
         protoc --dart_out=./lib/widgets/proto_out -I ../protobuf ../protobuf/* 
-       ```
+        ```
 5. Run the examples (`bun run dev` for ExpressJS) (`flutter run -d <your-device-id>` for the `example_app`)
 6. Now you should be ready to implement your Pdui* class using your generated code from the Protobuf message
-    1. You can inspect the generated code on both sides on the `lib/widgets/proto_out*` files
+    1. You can inspect the generated code on both sides on the `lib/proto_out*` files
 
 Dont forget the logic: The server creates the protobuf from classes `toPB` and `toExpression` functions -> Client create Flutter stuff using the protobuff information
 

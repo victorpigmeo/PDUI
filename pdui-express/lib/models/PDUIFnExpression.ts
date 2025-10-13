@@ -9,7 +9,7 @@ import type {
 export abstract class PDUIFnExpression implements PBFnExpression {
     identity: string;
     payload:
-        | { oneofKind: "generic"; generic: PBFn }
+        | { oneofKind: "genericFn"; genericFn: PBFn }
         | { oneofKind: "debugPrint"; debugPrint: PBDebugPrint }
         | { oneofKind: "navigation"; navigation: PBNavigation }
         | { oneofKind: "popNavigation"; popNavigation: PBPopNavigation }
@@ -21,7 +21,7 @@ export abstract class PDUIFnExpression implements PBFnExpression {
     }: {
         identity: string;
         payload:
-            | { oneofKind: "generic"; generic: PBFn }
+            | { oneofKind: "genericFn"; genericFn: PBFn }
             | { oneofKind: "debugPrint"; debugPrint: PBDebugPrint }
             | { oneofKind: "navigation"; navigation: PBNavigation }
             | { oneofKind: "popNavigation"; popNavigation: PBPopNavigation }

@@ -69,7 +69,7 @@ message PBPopNavigation{
 message PBFnExpression {
   string identity = 1;
   oneof payload {
-    PBFn generic = 2;
+    PBFn genericFn = 2;
     PBDebugPrint debugPrint = 3;
     PBNavigation navigation = 4;
     PBPopNavigation popNavigation = 5;

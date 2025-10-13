@@ -774,7 +774,7 @@ class PBPopNavigation extends $pb.GeneratedMessage {
 }
 
 enum PBFnExpression_Payload {
-  generic,
+  genericFn,
   debugPrint,
   navigation,
   popNavigation,
@@ -784,14 +784,14 @@ enum PBFnExpression_Payload {
 class PBFnExpression extends $pb.GeneratedMessage {
   factory PBFnExpression({
     $core.String? identity,
-    PBFn? generic,
+    PBFn? genericFn,
     PBDebugPrint? debugPrint,
     PBNavigation? navigation,
     PBPopNavigation? popNavigation,
   }) {
     final result = create();
     if (identity != null) result.identity = identity;
-    if (generic != null) result.generic = generic;
+    if (genericFn != null) result.genericFn = genericFn;
     if (debugPrint != null) result.debugPrint = debugPrint;
     if (navigation != null) result.navigation = navigation;
     if (popNavigation != null) result.popNavigation = popNavigation;
@@ -809,7 +809,7 @@ class PBFnExpression extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, PBFnExpression_Payload>
       _PBFnExpression_PayloadByTag = {
-    2: PBFnExpression_Payload.generic,
+    2: PBFnExpression_Payload.genericFn,
     3: PBFnExpression_Payload.debugPrint,
     4: PBFnExpression_Payload.navigation,
     5: PBFnExpression_Payload.popNavigation,
@@ -821,7 +821,8 @@ class PBFnExpression extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..oo(0, [2, 3, 4, 5])
     ..aOS(1, _omitFieldNames ? '' : 'identity')
-    ..aOM<PBFn>(2, _omitFieldNames ? '' : 'generic', subBuilder: PBFn.create)
+    ..aOM<PBFn>(2, _omitFieldNames ? '' : 'genericFn',
+        protoName: 'genericFn', subBuilder: PBFn.create)
     ..aOM<PBDebugPrint>(3, _omitFieldNames ? '' : 'debugPrint',
         protoName: 'debugPrint', subBuilder: PBDebugPrint.create)
     ..aOM<PBNavigation>(4, _omitFieldNames ? '' : 'navigation',
@@ -873,15 +874,15 @@ class PBFnExpression extends $pb.GeneratedMessage {
   void clearIdentity() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  PBFn get generic => $_getN(1);
+  PBFn get genericFn => $_getN(1);
   @$pb.TagNumber(2)
-  set generic(PBFn value) => $_setField(2, value);
+  set genericFn(PBFn value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasGeneric() => $_has(1);
+  $core.bool hasGenericFn() => $_has(1);
   @$pb.TagNumber(2)
-  void clearGeneric() => $_clearField(2);
+  void clearGenericFn() => $_clearField(2);
   @$pb.TagNumber(2)
-  PBFn ensureGeneric() => $_ensure(1);
+  PBFn ensureGenericFn() => $_ensure(1);
 
   @$pb.TagNumber(3)
   PBDebugPrint get debugPrint => $_getN(2);

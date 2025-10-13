@@ -177,11 +177,11 @@ export interface PBFnExpression {
      * @generated from protobuf oneof: payload
      */
     payload: {
-        oneofKind: "generic";
+        oneofKind: "genericFn";
         /**
-         * @generated from protobuf field: PDUI.PBFn generic = 2
+         * @generated from protobuf field: PDUI.PBFn genericFn = 2
          */
-        generic: PBFn;
+        genericFn: PBFn;
     } | {
         oneofKind: "debugPrint";
         /**
@@ -921,7 +921,7 @@ class PBFnExpression$Type extends MessageType<PBFnExpression> {
     constructor() {
         super("PDUI.PBFnExpression", [
             { no: 1, name: "identity", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "generic", kind: "message", oneof: "payload", T: () => PBFn },
+            { no: 2, name: "genericFn", kind: "message", oneof: "payload", T: () => PBFn },
             { no: 3, name: "debugPrint", kind: "message", oneof: "payload", T: () => PBDebugPrint },
             { no: 4, name: "navigation", kind: "message", oneof: "payload", T: () => PBNavigation },
             { no: 5, name: "popNavigation", kind: "message", oneof: "payload", T: () => PBPopNavigation }
@@ -943,10 +943,10 @@ class PBFnExpression$Type extends MessageType<PBFnExpression> {
                 case /* string identity */ 1:
                     message.identity = reader.string();
                     break;
-                case /* PDUI.PBFn generic */ 2:
+                case /* PDUI.PBFn genericFn */ 2:
                     message.payload = {
-                        oneofKind: "generic",
-                        generic: PBFn.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).generic)
+                        oneofKind: "genericFn",
+                        genericFn: PBFn.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).genericFn)
                     };
                     break;
                 case /* PDUI.PBDebugPrint debugPrint */ 3:
@@ -982,9 +982,9 @@ class PBFnExpression$Type extends MessageType<PBFnExpression> {
         /* string identity = 1; */
         if (message.identity !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.identity);
-        /* PDUI.PBFn generic = 2; */
-        if (message.payload.oneofKind === "generic")
-            PBFn.internalBinaryWrite(message.payload.generic, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        /* PDUI.PBFn genericFn = 2; */
+        if (message.payload.oneofKind === "genericFn")
+            PBFn.internalBinaryWrite(message.payload.genericFn, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
         /* PDUI.PBDebugPrint debugPrint = 3; */
         if (message.payload.oneofKind === "debugPrint")
             PBDebugPrint.internalBinaryWrite(message.payload.debugPrint, writer.tag(3, WireType.LengthDelimited).fork(), options).join();

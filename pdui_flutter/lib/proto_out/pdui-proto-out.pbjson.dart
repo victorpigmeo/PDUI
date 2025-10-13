@@ -300,13 +300,13 @@ const PBFnExpression$json = {
   '2': [
     {'1': 'identity', '3': 1, '4': 1, '5': 9, '10': 'identity'},
     {
-      '1': 'generic',
+      '1': 'genericFn',
       '3': 2,
       '4': 1,
       '5': 11,
       '6': '.PDUI.PBFn',
       '9': 0,
-      '10': 'generic'
+      '10': 'genericFn'
     },
     {
       '1': 'debugPrint',
@@ -343,11 +343,11 @@ const PBFnExpression$json = {
 
 /// Descriptor for `PBFnExpression`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List pBFnExpressionDescriptor = $convert.base64Decode(
-    'Cg5QQkZuRXhwcmVzc2lvbhIaCghpZGVudGl0eRgBIAEoCVIIaWRlbnRpdHkSJgoHZ2VuZXJpYx'
-    'gCIAEoCzIKLlBEVUkuUEJGbkgAUgdnZW5lcmljEjQKCmRlYnVnUHJpbnQYAyABKAsyEi5QRFVJ'
-    'LlBCRGVidWdQcmludEgAUgpkZWJ1Z1ByaW50EjQKCm5hdmlnYXRpb24YBCABKAsyEi5QRFVJLl'
-    'BCTmF2aWdhdGlvbkgAUgpuYXZpZ2F0aW9uEj0KDXBvcE5hdmlnYXRpb24YBSABKAsyFS5QRFVJ'
-    'LlBCUG9wTmF2aWdhdGlvbkgAUg1wb3BOYXZpZ2F0aW9uQgkKB3BheWxvYWQ=');
+    'Cg5QQkZuRXhwcmVzc2lvbhIaCghpZGVudGl0eRgBIAEoCVIIaWRlbnRpdHkSKgoJZ2VuZXJpY0'
+    'ZuGAIgASgLMgouUERVSS5QQkZuSABSCWdlbmVyaWNGbhI0CgpkZWJ1Z1ByaW50GAMgASgLMhIu'
+    'UERVSS5QQkRlYnVnUHJpbnRIAFIKZGVidWdQcmludBI0CgpuYXZpZ2F0aW9uGAQgASgLMhIuUE'
+    'RVSS5QQk5hdmlnYXRpb25IAFIKbmF2aWdhdGlvbhI9Cg1wb3BOYXZpZ2F0aW9uGAUgASgLMhUu'
+    'UERVSS5QQlBvcE5hdmlnYXRpb25IAFINcG9wTmF2aWdhdGlvbkIJCgdwYXlsb2Fk');
 
 @$core.Deprecated('Use pBExpressionDescriptor instead')
 const PBExpression$json = {

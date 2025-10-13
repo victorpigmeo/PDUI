@@ -10,11 +10,11 @@ export class PDUIGenericFn extends PDUIFn {
         body,
     }: {
         name?: string;
-        params: { [key: string]: number | string };
+        params: { [key: string]: number | string | boolean };
         body: () => PDUIFn[];
     }) {
         super({
-            identity: "generic",
+            identity: "genericFn",
             name,
             params: parseParams(name, params),
             body: parseBody(name, body),
@@ -29,8 +29,8 @@ export class PDUIGenericFn extends PDUIFn {
         return {
             identity: "genericFn",
             payload: {
-                oneofKind: "generic",
-                generic: {
+                oneofKind: "genericFn",
+                genericFn: {
                     name: this.name,
                     params: this.params,
                     body: this.body,

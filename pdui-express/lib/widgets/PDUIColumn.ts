@@ -1,5 +1,5 @@
 import { PDUIWidget } from "../models/PDUIWidget";
-import type { PBColumn, PBExpression } from "./proto-out/widgets";
+import type { PBColumn, PBExpression } from "../proto-out/pdui-proto-out.ts";
 
 export class PDUIColumn extends PDUIWidget {
     children: PDUIWidget[];

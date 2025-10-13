@@ -2,7 +2,7 @@ import type {
     PBFn,
     PBFnExpression,
     PBFnParameter,
-} from "../widgets/proto-out/widgets";
+} from "../proto-out/pdui-proto-out.ts";
 
 export abstract class PDUIFn implements PBFn {
     name?: string | undefined;

@@ -1,6 +1,9 @@
 import type { PDUIFn } from "../models/PDUIFn";
 import { PDUIWidget } from "../models/PDUIWidget";
-import type { PBElevatedButton, PBExpression } from "./proto-out/widgets";
+import type {
+    PBElevatedButton,
+    PBExpression,
+} from "../proto-out/pdui-proto-out.ts";
 
 export class PDUIElevatedButton extends PDUIWidget {
     child: PDUIWidget;

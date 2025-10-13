@@ -4,7 +4,7 @@ import {
     PBFnExpression,
     type PBDebugPrint,
     type PBExpression,
-} from "../widgets/proto-out/widgets";
+} from "../proto-out/pdui-proto-out.ts";
 
 export class PDUIDebugPrint extends PDUIFn implements PBDebugPrint {
     expression: PBExpression;

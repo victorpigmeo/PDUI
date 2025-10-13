@@ -1,5 +1,5 @@
 import express, { type Application } from "express";
-import { getWidget } from "../controllers/widgetController";
+import { getExpression } from "../controllers/expressionController";
 import { jwtMiddleware } from "../auth";
 import type { PDUIRoute } from "../models/PDUIRoute";
 import { createClient, type RedisClientType } from "redis";
@@ -45,17 +45,20 @@ export async function start({
         if (useJwt) {
             // TODO: Maybe separate this to a new function
             pduiRoutes.get(
-                "/pdui/get-widget/:widgetId",
+                "/pdui/get-expression/:expressionId",
                 jwtMiddleware,
-                getWidget,
+                getExpression,
             );
         } else {
             //TODO: create controller for this
             //TODO Maybe /get-expression/:expressionId?
-            pduiRoutes.get("/pdui/get-widget/:widgetId", getWidget);
+            pduiRoutes.get("/pdui/get-expression/:expressionId", getExpression);
         }
 
-        pduiRoutes.delete("/pdui/invalidate-cache/:widgetId", invalidateCache);
+        pduiRoutes.delete(
+            "/pdui/invalidate-cache/:expressionId",
+            invalidateCache,
+        );
 
         application.use(pduiRoutes);
 

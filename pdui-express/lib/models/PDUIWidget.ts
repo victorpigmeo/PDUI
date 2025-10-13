@@ -6,7 +6,7 @@ import type {
     PBExpression,
     PBScaffold,
     PBText,
-} from "../widgets/proto-out/widgets";
+} from "../proto-out/pdui-proto-out.ts";
 
 export abstract class PDUIWidget implements PBExpression {
     key?: string | undefined;

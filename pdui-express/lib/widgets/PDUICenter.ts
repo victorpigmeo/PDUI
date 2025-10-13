@@ -1,5 +1,5 @@
 import { PDUIWidget } from "../models/PDUIWidget";
-import type { PBCenter, PBExpression } from "./proto-out/widgets";
+import type { PBCenter, PBExpression } from "../proto-out/pdui-proto-out.ts";
 
 export class PDUICenter extends PDUIWidget {
     child: PDUIWidget;

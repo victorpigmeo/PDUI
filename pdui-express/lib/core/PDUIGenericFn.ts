@@ -1,5 +1,5 @@
 import { PDUIFn } from "../models/PDUIFn";
-import { type PBFn, type PBFnExpression } from "../widgets/proto-out/widgets";
+import { type PBFn, type PBFnExpression } from "../proto-out/pdui-proto-out.ts";
 import { parseBody } from "./PDUIFnBodyParser";
 import { parseParams } from "./PDUIFnParamParser";
 

@@ -1,4 +1,4 @@
-import { PBDataType, type PBFnParameter } from "../widgets/proto-out/widgets";
+import { PBDataType, type PBFnParameter } from "../proto-out/pdui-proto-out.ts";
 
 export function parseParams(
     fnName: string | undefined,

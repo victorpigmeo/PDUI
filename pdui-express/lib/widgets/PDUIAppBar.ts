@@ -1,5 +1,5 @@
 import { PDUIWidget } from "../models/PDUIWidget";
-import type { PBAppBar, PBExpression } from "./proto-out/widgets";
+import type { PBAppBar, PBExpression } from "../proto-out/pdui-proto-out.ts";
 
 export class PDUIAppBar extends PDUIWidget {
     title: string;

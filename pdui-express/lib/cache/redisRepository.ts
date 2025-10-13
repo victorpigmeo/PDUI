@@ -1,11 +1,11 @@
 import { PDUI } from "../init";
 
-export async function getCacheIdByWidgetId(
-    widgetId: string,
+export async function getCacheIdByExpressionId(
+    expressionId: string,
 ): Promise<string | null> {
     return new Promise((resolve, reject) => {
         PDUI.redisClient
-            .get(widgetId)
+            .get(expressionId)
             .then((cachedData) => {
                 if (cachedData) {
                     resolve(cachedData);
@@ -20,13 +20,13 @@ export async function getCacheIdByWidgetId(
     });
 }
 
-export async function setCacheIdByWidgetId(
-    widgetId: string,
+export async function setCacheIdByExpressionId(
+    expressionId: string,
     cacheId: string,
 ): Promise<string> {
     return new Promise<string>((resolve, reject) => {
         PDUI.redisClient
-            .set(widgetId, cacheId)
+            .set(expressionId, cacheId)
             .then(() => {
                 resolve(cacheId);
             })
@@ -37,12 +37,12 @@ export async function setCacheIdByWidgetId(
     });
 }
 
-export async function invalidateCacheByWidgetId(
-    widgetId: string,
+export async function invalidateCacheByExpressionId(
+    expressionId: string,
 ): Promise<void> {
     return new Promise<void>((resolve, reject) => {
         PDUI.redisClient
-            .del(widgetId)
+            .del(expressionId)
             .then(() => {
                 resolve();
             })

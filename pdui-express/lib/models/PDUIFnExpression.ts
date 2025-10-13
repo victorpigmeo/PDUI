@@ -2,7 +2,7 @@ import type {
     PBDebugPrint,
     PBFn,
     PBFnExpression,
-} from "../widgets/proto-out/widgets";
+} from "../proto-out/pdui-proto-out.ts";
 
 export abstract class PDUIFnExpression implements PBFnExpression {
     identity: string;

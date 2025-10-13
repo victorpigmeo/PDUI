@@ -1,5 +1,5 @@
 import { PDUIWidget } from "../models/PDUIWidget";
-import { PBScaffold, type PBExpression } from "./proto-out/widgets";
+import { PBScaffold, type PBExpression } from "../proto-out/pdui-proto-out.ts";
 
 export class PDUIScaffold extends PDUIWidget {
     appBar: PDUIWidget;

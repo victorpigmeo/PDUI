@@ -44,7 +44,7 @@ After installing you'll use the `PduiHome` widget that will manage everything be
 After that you only need to setup your server, which you can do clicking on your framework of choice at the table above.
 
 Once you use `PduiHome` everything from that point onward will be managed by PDUI. You can also use PduiHome as a Widget on your already existing app.
-To load the root (And all that is behind your root afterwards) PDUI will request your server at: ```GET <your-express-server>:<your-express-port>/pdui/get-widget/:widgetId```
+To load the root (And all that is behind your root afterwards) PDUI will request your server at: ```GET <your-express-server>:<your-express-port>/pdui/get-expression/:expressionId```
 
 PDUI Uses a set of objects/functions to convert what you create on the backend in protobuf. (Pdui* classes/functions)
 
@@ -76,7 +76,7 @@ The cache works by using the `flutter_secure_storage` on the mobile side, if the
 
 *TODO: add some diagrams later*
 
-#### To invalidate the cache make a GET request on: `<your-server>:<your-port>/pdui/invalidate-cache/:widgetId` [WIP]
+#### To invalidate the cache make a GET request on: `<your-server>:<your-port>/pdui/invalidate-cache/:expressionId` [WIP]
 ##### TODO: Invalidate all caches
 
 ---

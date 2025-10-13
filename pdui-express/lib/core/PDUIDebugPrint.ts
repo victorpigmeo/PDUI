@@ -30,7 +30,7 @@ export class PDUIDebugPrint extends PDUIFn implements PBDebugPrint {
 
             case "object":
                 const widget = expression as PDUIWidget;
-                this.expression = widget.toPB();
+                this.expression = widget.toExpression();
                 break;
             default:
                 throw Error("Wrong type used on PDUIDebugPrint");

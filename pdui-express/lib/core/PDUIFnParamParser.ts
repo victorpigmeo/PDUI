@@ -2,7 +2,7 @@ import { PBDataType, type PBFnParameter } from "../proto-out/pdui-proto-out.ts";
 
 export function parseParams(
     fnName: string | undefined,
-    params: { [key: string]: number | string },
+    params: { [key: string]: number | string | boolean },
 ): { [key: string]: PBFnParameter } {
     const pbParams: { [key: string]: PBFnParameter } = {};
     const paramsKeys: string[] = Object.keys(params);

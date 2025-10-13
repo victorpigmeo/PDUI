@@ -11,11 +11,13 @@ dependencies:
 Then run `flutter pub get` to download the library
 
 ### Getting started
-You just need to use the `PduiHome` widget wherever you want on your application.
+You just need to use the `PduiScreen` widget wherever you want on your application.
+If you want to use `PDUINavigation` you need to set the `navigatorKey` as indicated below.
 If you want PDUI controlling youe whole app your `main.dart` will look like this:
 ```dart
 import 'package:flutter/material.dart';
-import 'package:pdui_flutter/widgets/pdui_home.dart';
+import 'package:pdui_flutter/core/pdui_context.dart';
+import 'package:pdui_flutter/screens/pdui_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,9 +33,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: PduiHome(
-        title: "PDUI App",
-        rootExpressionId: "home", //Don't forget to register this rounte on your server
+      navigatorKey: PduiContext.navigatorKey, //Very important, without this your navigation won't work!!!
+      home: PduiScreen(
+        expressionId: "home", //Don't forget to register this route on your server
         useCache: false, // true if you want to use it, remember to have a redis cache running on the default port
       ),
     );

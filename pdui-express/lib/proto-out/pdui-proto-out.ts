@@ -150,6 +150,22 @@ export interface PBDebugPrint {
     expression?: PBExpression;
 }
 /**
+ * @generated from protobuf message PDUI.PBNavigation
+ */
+export interface PBNavigation {
+    /**
+     * @generated from protobuf field: string expressionId = 1
+     */
+    expressionId: string; // TODO: Support data on navigation
+}
+/**
+ * TODO: Support data on pop
+ *
+ * @generated from protobuf message PDUI.PBPopNavigation
+ */
+export interface PBPopNavigation {
+}
+/**
  * @generated from protobuf message PDUI.PBFnExpression
  */
 export interface PBFnExpression {
@@ -172,6 +188,18 @@ export interface PBFnExpression {
          * @generated from protobuf field: PDUI.PBDebugPrint debugPrint = 3
          */
         debugPrint: PBDebugPrint;
+    } | {
+        oneofKind: "navigation";
+        /**
+         * @generated from protobuf field: PDUI.PBNavigation navigation = 4
+         */
+        navigation: PBNavigation;
+    } | {
+        oneofKind: "popNavigation";
+        /**
+         * @generated from protobuf field: PDUI.PBPopNavigation popNavigation = 5
+         */
+        popNavigation: PBPopNavigation;
     } | {
         oneofKind: undefined;
     };
@@ -804,12 +832,99 @@ class PBDebugPrint$Type extends MessageType<PBDebugPrint> {
  */
 export const PBDebugPrint = new PBDebugPrint$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class PBNavigation$Type extends MessageType<PBNavigation> {
+    constructor() {
+        super("PDUI.PBNavigation", [
+            { no: 1, name: "expressionId", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<PBNavigation>): PBNavigation {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.expressionId = "";
+        if (value !== undefined)
+            reflectionMergePartial<PBNavigation>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PBNavigation): PBNavigation {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string expressionId */ 1:
+                    message.expressionId = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: PBNavigation, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string expressionId = 1; */
+        if (message.expressionId !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.expressionId);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message PDUI.PBNavigation
+ */
+export const PBNavigation = new PBNavigation$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class PBPopNavigation$Type extends MessageType<PBPopNavigation> {
+    constructor() {
+        super("PDUI.PBPopNavigation", []);
+    }
+    create(value?: PartialMessage<PBPopNavigation>): PBPopNavigation {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<PBPopNavigation>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PBPopNavigation): PBPopNavigation {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: PBPopNavigation, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message PDUI.PBPopNavigation
+ */
+export const PBPopNavigation = new PBPopNavigation$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class PBFnExpression$Type extends MessageType<PBFnExpression> {
     constructor() {
         super("PDUI.PBFnExpression", [
             { no: 1, name: "identity", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "generic", kind: "message", oneof: "payload", T: () => PBFn },
-            { no: 3, name: "debugPrint", kind: "message", oneof: "payload", T: () => PBDebugPrint }
+            { no: 3, name: "debugPrint", kind: "message", oneof: "payload", T: () => PBDebugPrint },
+            { no: 4, name: "navigation", kind: "message", oneof: "payload", T: () => PBNavigation },
+            { no: 5, name: "popNavigation", kind: "message", oneof: "payload", T: () => PBPopNavigation }
         ]);
     }
     create(value?: PartialMessage<PBFnExpression>): PBFnExpression {
@@ -840,6 +955,18 @@ class PBFnExpression$Type extends MessageType<PBFnExpression> {
                         debugPrint: PBDebugPrint.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).debugPrint)
                     };
                     break;
+                case /* PDUI.PBNavigation navigation */ 4:
+                    message.payload = {
+                        oneofKind: "navigation",
+                        navigation: PBNavigation.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).navigation)
+                    };
+                    break;
+                case /* PDUI.PBPopNavigation popNavigation */ 5:
+                    message.payload = {
+                        oneofKind: "popNavigation",
+                        popNavigation: PBPopNavigation.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).popNavigation)
+                    };
+                    break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
@@ -861,6 +988,12 @@ class PBFnExpression$Type extends MessageType<PBFnExpression> {
         /* PDUI.PBDebugPrint debugPrint = 3; */
         if (message.payload.oneofKind === "debugPrint")
             PBDebugPrint.internalBinaryWrite(message.payload.debugPrint, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        /* PDUI.PBNavigation navigation = 4; */
+        if (message.payload.oneofKind === "navigation")
+            PBNavigation.internalBinaryWrite(message.payload.navigation, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        /* PDUI.PBPopNavigation popNavigation = 5; */
+        if (message.payload.oneofKind === "popNavigation")
+            PBPopNavigation.internalBinaryWrite(message.payload.popNavigation, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

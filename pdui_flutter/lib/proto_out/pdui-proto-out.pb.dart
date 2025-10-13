@@ -677,18 +677,124 @@ class PBDebugPrint extends $pb.GeneratedMessage {
   PBExpression ensureExpression() => $_ensure(0);
 }
 
-enum PBFnExpression_Payload { generic, debugPrint, notSet }
+class PBNavigation extends $pb.GeneratedMessage {
+  factory PBNavigation({
+    $core.String? expressionId,
+  }) {
+    final result = create();
+    if (expressionId != null) result.expressionId = expressionId;
+    return result;
+  }
+
+  PBNavigation._();
+
+  factory PBNavigation.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PBNavigation.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PBNavigation',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'expressionId', protoName: 'expressionId')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBNavigation clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBNavigation copyWith(void Function(PBNavigation) updates) =>
+      super.copyWith((message) => updates(message as PBNavigation))
+          as PBNavigation;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PBNavigation create() => PBNavigation._();
+  @$core.override
+  PBNavigation createEmptyInstance() => create();
+  static $pb.PbList<PBNavigation> createRepeated() =>
+      $pb.PbList<PBNavigation>();
+  @$core.pragma('dart2js:noInline')
+  static PBNavigation getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PBNavigation>(create);
+  static PBNavigation? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get expressionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set expressionId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasExpressionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearExpressionId() => $_clearField(1);
+}
+
+class PBPopNavigation extends $pb.GeneratedMessage {
+  factory PBPopNavigation() => create();
+
+  PBPopNavigation._();
+
+  factory PBPopNavigation.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PBPopNavigation.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PBPopNavigation',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBPopNavigation clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBPopNavigation copyWith(void Function(PBPopNavigation) updates) =>
+      super.copyWith((message) => updates(message as PBPopNavigation))
+          as PBPopNavigation;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PBPopNavigation create() => PBPopNavigation._();
+  @$core.override
+  PBPopNavigation createEmptyInstance() => create();
+  static $pb.PbList<PBPopNavigation> createRepeated() =>
+      $pb.PbList<PBPopNavigation>();
+  @$core.pragma('dart2js:noInline')
+  static PBPopNavigation getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PBPopNavigation>(create);
+  static PBPopNavigation? _defaultInstance;
+}
+
+enum PBFnExpression_Payload {
+  generic,
+  debugPrint,
+  navigation,
+  popNavigation,
+  notSet
+}
 
 class PBFnExpression extends $pb.GeneratedMessage {
   factory PBFnExpression({
     $core.String? identity,
     PBFn? generic,
     PBDebugPrint? debugPrint,
+    PBNavigation? navigation,
+    PBPopNavigation? popNavigation,
   }) {
     final result = create();
     if (identity != null) result.identity = identity;
     if (generic != null) result.generic = generic;
     if (debugPrint != null) result.debugPrint = debugPrint;
+    if (navigation != null) result.navigation = navigation;
+    if (popNavigation != null) result.popNavigation = popNavigation;
     return result;
   }
 
@@ -705,17 +811,23 @@ class PBFnExpression extends $pb.GeneratedMessage {
       _PBFnExpression_PayloadByTag = {
     2: PBFnExpression_Payload.generic,
     3: PBFnExpression_Payload.debugPrint,
+    4: PBFnExpression_Payload.navigation,
+    5: PBFnExpression_Payload.popNavigation,
     0: PBFnExpression_Payload.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'PBFnExpression',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
       createEmptyInstance: create)
-    ..oo(0, [2, 3])
+    ..oo(0, [2, 3, 4, 5])
     ..aOS(1, _omitFieldNames ? '' : 'identity')
     ..aOM<PBFn>(2, _omitFieldNames ? '' : 'generic', subBuilder: PBFn.create)
     ..aOM<PBDebugPrint>(3, _omitFieldNames ? '' : 'debugPrint',
         protoName: 'debugPrint', subBuilder: PBDebugPrint.create)
+    ..aOM<PBNavigation>(4, _omitFieldNames ? '' : 'navigation',
+        subBuilder: PBNavigation.create)
+    ..aOM<PBPopNavigation>(5, _omitFieldNames ? '' : 'popNavigation',
+        protoName: 'popNavigation', subBuilder: PBPopNavigation.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -741,10 +853,14 @@ class PBFnExpression extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
+  @$pb.TagNumber(5)
   PBFnExpression_Payload whichPayload() =>
       _PBFnExpression_PayloadByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(2)
   @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
+  @$pb.TagNumber(5)
   void clearPayload() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -777,6 +893,28 @@ class PBFnExpression extends $pb.GeneratedMessage {
   void clearDebugPrint() => $_clearField(3);
   @$pb.TagNumber(3)
   PBDebugPrint ensureDebugPrint() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  PBNavigation get navigation => $_getN(3);
+  @$pb.TagNumber(4)
+  set navigation(PBNavigation value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasNavigation() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearNavigation() => $_clearField(4);
+  @$pb.TagNumber(4)
+  PBNavigation ensureNavigation() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  PBPopNavigation get popNavigation => $_getN(4);
+  @$pb.TagNumber(5)
+  set popNavigation(PBPopNavigation value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasPopNavigation() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPopNavigation() => $_clearField(5);
+  @$pb.TagNumber(5)
+  PBPopNavigation ensurePopNavigation() => $_ensure(4);
 }
 
 enum PBExpression_Payload {

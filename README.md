@@ -40,10 +40,10 @@ TL;DR
 
 You'll need the PDUI Flutter (`pdui_flutter`) package installed on your flutter application.
 
-After installing you'll use the `PduiHome` widget that will manage everything behind the courtains, you only need to provide the configuration needed to span the library, for example, the `rootExpressionId` that is the very first screen of your app, or `enableCache` if you're using cache.
+After installing you'll use the `PduiScreen` widget that will manage everything behind the courtains, you only need to provide the configuration needed to span the library, for example, the `rootExpressionId` that is the very first screen of your app, or `enableCache` if you're using cache.
 After that you only need to setup your server, which you can do clicking on your framework of choice at the table above.
 
-Once you use `PduiHome` everything from that point onward will be managed by PDUI. You can also use PduiHome as a Widget on your already existing app.
+Once you use `PduiScreen` everything from that point onward will be managed by PDUI. You can also use `PduiScreen` as a Widget on your already existing app.
 To load the root (And all that is behind your root afterwards) PDUI will request your server at: ```GET <your-express-server>:<your-express-port>/pdui/get-expression/:expressionId```
 
 PDUI Uses a set of objects/functions to convert what you create on the backend in protobuf. (Pdui* classes/functions)
@@ -52,15 +52,17 @@ Then this protobuf is sent as a response for the client.
 
 On the client side, the `pdui-flutter` will convert this protobuf to Flutter (Dart) code an execute it, just like you had coded on pure Flutter
 
+> If you want to use `PDUINavigation` you need to set the `navigatorKey` as indicated on the [flutter library README](./pdui_flutter/README.md).
+
 > If you're using cacheEnable a query param (`cacheId`) will be included on the request 
 
-> If you're using JWT you'll need to provide the authentication mechanism and the token to the `PduiHome` param [WIP]
+> If you're using JWT you'll need to provide the authentication mechanism and the token to the `PduiScreen` param [WIP]
 
 
 ---
 ### Enabling cache
 #### To enable caching you'll need a Redis cache on the server side!!!
-You don´t need to setup anything besides `useCache = true` on both the server side `start` function and also on the `useCache = true` property on the `PduiHome` widget instantiation.
+You don´t need to setup anything besides `useCache = true` on both the server side `start` function and also on the `useCache = true` property on the `PduiScreen` widget instantiation.
 
 The cache works by using the `flutter_secure_storage` on the mobile side, if the cache is enabled:
 * The app library requests the first expression and don't send a `cacheId`;

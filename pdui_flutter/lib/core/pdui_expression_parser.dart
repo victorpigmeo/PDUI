@@ -8,6 +8,8 @@ import '../widgets/pdui_column.dart';
 import '../widgets/pdui_elevated_button.dart';
 import '../widgets/pdui_scaffold.dart';
 import '../widgets/pdui_text.dart';
+import 'pdui_navigation.dart';
+import 'pdui_pop_navigation.dart';
 
 //TODO: Maybe use strategy pattern?
 class PduiExpressionParser {
@@ -24,7 +26,9 @@ class PduiExpressionParser {
       case "elevatedButton":
         return PduiElevatedButton(pbExpression).resolve();
       default:
-        return Text("ERROR: Widget not found");
+        throw Exception(
+          "Don't know how to create Widget from '${pbExpression.identity}'",
+        );
     }
   }
 }
@@ -37,8 +41,16 @@ class PduiFnExpressionParser {
       case "debugPrint":
         PduiDebugPrint(pbFnExpression.debugPrint).resolve();
         break;
+      case "navigation":
+        PduiNavigation(pbFnExpression.navigation).resolve();
+        break;
+      case "popNavigation":
+        PduiPopNavigation(pbFnExpression.popNavigation).resolve();
+        break;
       default:
-        throw Error();
+        throw Exception(
+          "Don´t know how to create fn from '${pbFnExpression.identity}'",
+        );
     }
   }
 }

@@ -2,6 +2,8 @@ import type {
     PBDebugPrint,
     PBFn,
     PBFnExpression,
+    PBNavigation,
+    PBPopNavigation,
 } from "../proto-out/pdui-proto-out.ts";
 
 export abstract class PDUIFnExpression implements PBFnExpression {
@@ -9,6 +11,8 @@ export abstract class PDUIFnExpression implements PBFnExpression {
     payload:
         | { oneofKind: "generic"; generic: PBFn }
         | { oneofKind: "debugPrint"; debugPrint: PBDebugPrint }
+        | { oneofKind: "navigation"; navigation: PBNavigation }
+        | { oneofKind: "popNavigation"; popNavigation: PBPopNavigation }
         | { oneofKind: undefined };
 
     constructor({
@@ -19,6 +23,8 @@ export abstract class PDUIFnExpression implements PBFnExpression {
         payload:
             | { oneofKind: "generic"; generic: PBFn }
             | { oneofKind: "debugPrint"; debugPrint: PBDebugPrint }
+            | { oneofKind: "navigation"; navigation: PBNavigation }
+            | { oneofKind: "popNavigation"; popNavigation: PBPopNavigation }
             | { oneofKind: undefined };
     }) {
         this.identity = identity;

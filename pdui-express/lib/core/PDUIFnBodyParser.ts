@@ -12,6 +12,8 @@ export function parseBody(
         if (fnBodyFns[i]) {
             switch (fnBodyFns[i]?.identity) {
                 case "debugPrint":
+                case "navigation":
+                case "popNavigation":
                 case "generic":
                     pbParsedBody[i + 1] = fnBodyFns[i]!.toFnExpression();
                     break;

@@ -6,49 +6,39 @@ import 'package:http/http.dart';
 
 import '../http_client/pdui_http_client.dart';
 import '../proto_out/pdui-proto-out.pb.dart';
-import 'pdui_expression.dart';
+import '../core/pdui_expression.dart';
+import 'pdui_loading_screen.dart';
 
-class PduiHome extends StatefulWidget {
-  const PduiHome({
+class PduiScreen extends StatefulWidget {
+  const PduiScreen({
     super.key,
-    required this.title,
-    required this.rootExpressionId,
+    required this.expressionId,
     required this.useCache,
   });
 
-  final String title;
-  final String rootExpressionId;
+  final String expressionId;
   final bool useCache;
 
   @override
-  State<PduiHome> createState() => _PduiHomeState();
+  State<PduiScreen> createState() => _PduiScreenState();
 }
 
-class _PduiHomeState extends State<PduiHome> {
+class _PduiScreenState extends State<PduiScreen> {
   final secureStorage = FlutterSecureStorage();
-
-  Widget screen = Scaffold(
-    appBar: AppBar(title: Text("Loading")),
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [CircularProgressIndicator()],
-      ),
-    ),
-  );
+  late Widget screen = PduiLoadingScreen(useCache: widget.useCache);
 
   @override
   void initState() {
     super.initState();
-    fetchHomeComponent();
+    fetchExpression();
   }
 
-  void fetchHomeComponent() async {
-    var pduiHttpClient = PduiHttpClient();
+  void fetchExpression() async {
     String? clientCacheId = await getClientCacheId();
+    PduiHttpClient httpClient = PduiHttpClient();
 
-    pduiHttpClient
-        .getExpression(widget.rootExpressionId, clientCacheId)
+    httpClient
+        .getExpression(widget.expressionId, clientCacheId)
         .then((response) async {
           if (widget.useCache) {
             print("CACHED");
@@ -60,11 +50,11 @@ class _PduiHomeState extends State<PduiHome> {
             buildAndRenderExpression(jsonDecode(response.body)["payload"]);
           }
         })
-        .catchError((error) => print(error.toString()));
+        .catchError((error) => throw error);
   }
 
   Future<String?> getClientCacheId() async {
-    return await secureStorage.read(key: widget.rootExpressionId).then((
+    return await secureStorage.read(key: widget.expressionId).then((
       rawCachedData,
     ) {
       if (rawCachedData != null) {
@@ -96,9 +86,7 @@ class _PduiHomeState extends State<PduiHome> {
 
     if (cacheAlive) {
       print("CacheAlive building from storage");
-      await secureStorage.read(key: widget.rootExpressionId).then((
-        rawCachedData,
-      ) {
+      await secureStorage.read(key: widget.expressionId).then((rawCachedData) {
         if (rawCachedData != null) {
           final Map<String, dynamic> cachedData = jsonDecode(rawCachedData);
 
@@ -112,7 +100,7 @@ class _PduiHomeState extends State<PduiHome> {
       final String serverCacheId = jsonDecode(response.body)["cacheId"];
 
       await secureStorage.write(
-        key: widget.rootExpressionId,
+        key: widget.expressionId,
         value: jsonEncode({
           "cacheId": serverCacheId,
           "expressionBytes": expressionBytes,

@@ -273,6 +273,27 @@ final $typed_data.Uint8List pBDebugPrintDescriptor = $convert.base64Decode(
     'CgxQQkRlYnVnUHJpbnQSMgoKZXhwcmVzc2lvbhgBIAEoCzISLlBEVUkuUEJFeHByZXNzaW9uUg'
     'pleHByZXNzaW9u');
 
+@$core.Deprecated('Use pBNavigationDescriptor instead')
+const PBNavigation$json = {
+  '1': 'PBNavigation',
+  '2': [
+    {'1': 'expressionId', '3': 1, '4': 1, '5': 9, '10': 'expressionId'},
+  ],
+};
+
+/// Descriptor for `PBNavigation`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List pBNavigationDescriptor = $convert.base64Decode(
+    'CgxQQk5hdmlnYXRpb24SIgoMZXhwcmVzc2lvbklkGAEgASgJUgxleHByZXNzaW9uSWQ=');
+
+@$core.Deprecated('Use pBPopNavigationDescriptor instead')
+const PBPopNavigation$json = {
+  '1': 'PBPopNavigation',
+};
+
+/// Descriptor for `PBPopNavigation`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List pBPopNavigationDescriptor =
+    $convert.base64Decode('Cg9QQlBvcE5hdmlnYXRpb24=');
+
 @$core.Deprecated('Use pBFnExpressionDescriptor instead')
 const PBFnExpression$json = {
   '1': 'PBFnExpression',
@@ -296,6 +317,24 @@ const PBFnExpression$json = {
       '9': 0,
       '10': 'debugPrint'
     },
+    {
+      '1': 'navigation',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBNavigation',
+      '9': 0,
+      '10': 'navigation'
+    },
+    {
+      '1': 'popNavigation',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBPopNavigation',
+      '9': 0,
+      '10': 'popNavigation'
+    },
   ],
   '8': [
     {'1': 'payload'},
@@ -306,7 +345,9 @@ const PBFnExpression$json = {
 final $typed_data.Uint8List pBFnExpressionDescriptor = $convert.base64Decode(
     'Cg5QQkZuRXhwcmVzc2lvbhIaCghpZGVudGl0eRgBIAEoCVIIaWRlbnRpdHkSJgoHZ2VuZXJpYx'
     'gCIAEoCzIKLlBEVUkuUEJGbkgAUgdnZW5lcmljEjQKCmRlYnVnUHJpbnQYAyABKAsyEi5QRFVJ'
-    'LlBCRGVidWdQcmludEgAUgpkZWJ1Z1ByaW50QgkKB3BheWxvYWQ=');
+    'LlBCRGVidWdQcmludEgAUgpkZWJ1Z1ByaW50EjQKCm5hdmlnYXRpb24YBCABKAsyEi5QRFVJLl'
+    'BCTmF2aWdhdGlvbkgAUgpuYXZpZ2F0aW9uEj0KDXBvcE5hdmlnYXRpb24YBSABKAsyFS5QRFVJ'
+    'LlBCUG9wTmF2aWdhdGlvbkgAUg1wb3BOYXZpZ2F0aW9uQgkKB3BheWxvYWQ=');
 
 @$core.Deprecated('Use pBExpressionDescriptor instead')
 const PBExpression$json = {

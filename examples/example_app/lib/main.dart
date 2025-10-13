@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pdui_flutter/widgets/pdui_home.dart';
+import 'package:pdui_flutter/core/pdui_context.dart';
+import 'package:pdui_flutter/screens/pdui_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: PduiHome(
-        title: "PDUI App",
-        rootExpressionId: "home",
-        useCache: false,
-      ),
+      navigatorKey: PduiContext.navigatorKey,
+      home: PduiScreen(expressionId: "home", useCache: false),
     );
   }
 }

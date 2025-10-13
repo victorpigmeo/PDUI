@@ -57,11 +57,22 @@ message PBDebugPrint{
   PBExpression expression = 1;
 }
 
+message PBNavigation{
+  string expressionId = 1;
+  //TODO: Support data on navigation
+}
+
+message PBPopNavigation{
+  //TODO: Support data on pop
+}
+
 message PBFnExpression {
   string identity = 1;
   oneof payload {
     PBFn generic = 2;
     PBDebugPrint debugPrint = 3;
+    PBNavigation navigation = 4;
+    PBPopNavigation popNavigation = 5;
   }
 }
 

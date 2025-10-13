@@ -1,6 +1,10 @@
 import { PDUIWidget } from "pdui-express/models";
 
-import { PDUIDebugPrint, PDUIGenericFn } from "pdui-express/core";
+import {
+    PDUIDebugPrint,
+    PDUIGenericFn,
+    PDUINavigation,
+} from "pdui-express/core";
 
 import {
     PDUIAppBar,
@@ -15,15 +19,13 @@ export class HomeController {
     static build(): PDUIWidget {
         return new PDUIScaffold({
             appBar: new PDUIAppBar({
-                title: "TESTE123",
+                title: "Home",
                 backgroundColor: "#FFFF00FF",
             }),
             body: new PDUICenter({
                 child: new PDUIColumn({
                     children: [
-                        new PDUIText({ data: "Texto1" }),
-                        new PDUIText({ data: "Texto2" }),
-                        new PDUIText({ data: "Texto3" }),
+                        new PDUIText({ data: "HOME SCREEN" }),
                         new PDUIElevatedButton({
                             child: new PDUIText({ data: "Press me" }),
                             onPressed: new PDUIGenericFn({
@@ -39,10 +41,15 @@ export class HomeController {
                                     steps.push(new PDUIDebugPrint(msg));
                                     steps.push(new PDUIDebugPrint(conta));
 
+                                    steps.push(
+                                        new PDUINavigation({
+                                            expressionId: "about",
+                                        }),
+                                    );
+
                                     return steps;
                                 },
                             }),
-                            // onPressed: new PDUIDebugPrint("OI"),
                         }),
                     ],
                 }),

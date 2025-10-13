@@ -5,10 +5,10 @@ import type {
 } from "../proto-out/pdui-proto-out.ts";
 
 export abstract class PDUIFn implements PBFn {
+    identity: string;
     name?: string | undefined;
     params: { [key: string]: PBFnParameter };
     body: { [key: string]: PBFnExpression };
-    identity: string;
 
     constructor({
         identity,

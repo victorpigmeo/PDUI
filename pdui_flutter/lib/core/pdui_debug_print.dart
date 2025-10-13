@@ -24,7 +24,7 @@ class PduiDebugPrint extends PduiFn {
         debugPrintBody = pbDebugPrint.expression.column.toString();
         break;
       case "text":
-        debugPrintBody = pbDebugPrint.expression.elevatedButton.toString();
+        debugPrintBody = pbDebugPrint.expression.text.toString();
         break;
       case "elevatedButton":
         debugPrintBody = pbDebugPrint.expression.elevatedButton.toString();

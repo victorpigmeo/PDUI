@@ -65,5 +65,11 @@ describe("ExpressionController Test", () => {
         ).toBe("Centered Text");
     });
 
-    test("GET /get-expression/:expressionId [Should not find the expression and return 404]", () => {});
+    test("GET /get-expression/:expressionId [Should not find the expression and return 404]", async () => {
+        const res = await request(server).get(
+            "/pdui/get-expression/non-existent-expression",
+        );
+
+        expect(res.statusCode).toBe(404);
+    });
 });

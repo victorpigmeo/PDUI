@@ -1,6 +1,6 @@
 // This is a generated file - do not edit.
 //
-// Generated from widgets.proto.
+// Generated from pdui-proto-out.proto.
 
 // @dart = 3.3
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../proto_out/pdui-proto-out.pb.dart';
 import 'pdui_debug_print.dart';
 import 'pdui_generic_fn.dart';
 import '../widgets/pdui_center.dart';
@@ -7,7 +8,6 @@ import '../widgets/pdui_column.dart';
 import '../widgets/pdui_elevated_button.dart';
 import '../widgets/pdui_scaffold.dart';
 import '../widgets/pdui_text.dart';
-import '../widgets/proto_out/widgets.pb.dart';
 
 //TODO: Maybe use strategy pattern?
 class PduiExpressionParser {

@@ -1,6 +1,6 @@
-import 'package:pdui_flutter/core/pdui_expression_parser.dart';
-import 'package:pdui_flutter/models/pdui_fn.dart';
-import 'package:pdui_flutter/widgets/proto_out/widgets.pb.dart';
+import '../models/pdui_fn.dart';
+import '../proto_out/pdui-proto-out.pb.dart';
+import 'pdui_expression_parser.dart';
 
 class PduiGenericFn extends PduiFn {
   PBFnExpression pbFnExpression;

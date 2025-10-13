@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'proto_out/widgets.pb.dart';
 import '../core/pdui_expression_parser.dart';
+import '../proto_out/pdui-proto-out.pb.dart';
 
 class PduiExpression {
   PBExpression pbExpression;

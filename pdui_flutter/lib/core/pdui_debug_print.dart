@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pdui_flutter/models/pdui_fn.dart';
-import 'package:pdui_flutter/widgets/proto_out/widgets.pb.dart';
+
+import '../models/pdui_fn.dart';
+import '../proto_out/pdui-proto-out.pb.dart';
 
 class PduiDebugPrint extends PduiFn {
   PBDebugPrint pbDebugPrint;

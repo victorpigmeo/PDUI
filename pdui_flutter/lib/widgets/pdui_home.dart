@@ -5,8 +5,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart';
 
 import '../http_client/pdui_http_client.dart';
+import '../proto_out/pdui-proto-out.pb.dart';
 import 'pdui_expression.dart';
-import 'proto_out/widgets.pb.dart';
 
 class PDUIHome extends StatefulWidget {
   const PDUIHome({

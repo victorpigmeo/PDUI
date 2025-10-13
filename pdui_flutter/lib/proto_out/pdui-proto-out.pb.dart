@@ -1,6 +1,6 @@
 // This is a generated file - do not edit.
 //
-// Generated from widgets.proto.
+// Generated from pdui-proto-out.proto.
 
 // @dart = 3.3
 
@@ -14,11 +14,11 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'widgets.pbenum.dart';
+import 'pdui-proto-out.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-export 'widgets.pbenum.dart';
+export 'pdui-proto-out.pbenum.dart';
 
 class PBScaffold extends $pb.GeneratedMessage {
   factory PBScaffold({

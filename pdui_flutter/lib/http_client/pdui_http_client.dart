@@ -6,7 +6,7 @@ class PDUIHttpClient {
     String? cacheId,
   ) async {
     return http.get(
-      Uri.http("192.168.18.28:3001", "/pdui/get-widget/$expressionId", {
+      Uri.http("192.168.18.28:3001", "/pdui/get-expression/$expressionId", {
         "cacheId": cacheId,
       }),
     );

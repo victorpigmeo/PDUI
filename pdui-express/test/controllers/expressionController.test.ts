@@ -33,7 +33,7 @@ afterAll(() => {
 });
 
 describe("ExpressionController Test", () => {
-    test("GET  /get-expression/:expressionId [Should return the 'home' expression ]", async () => {
+    test("GET /get-expression/:expressionId [Should return the 'home' expression ]", async () => {
         const res = await request(server).get("/pdui/get-expression/home");
 
         expect(res.statusCode).toBe(200);

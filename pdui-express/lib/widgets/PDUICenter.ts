@@ -13,6 +13,7 @@ export class PDUICenter extends PDUIWidget {
 
         this.child = child;
     }
+
     override toPB(): PBCenter {
         return {
             child: this.child.toPB(),

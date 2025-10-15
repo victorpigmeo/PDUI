@@ -9,6 +9,11 @@ To install the library run:
 bun add pdui-express
 ```
 
+To run the tests run:
+```bash
+bun test
+```
+
 Then add on your `server.ts`:
 ```typescript
 import pdui from "pdui-express";

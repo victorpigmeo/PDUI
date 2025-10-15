@@ -3,6 +3,8 @@ import type { PBAppBar, PBExpression } from "../proto-out/pdui-proto-out.ts";
 
 export class PDUIAppBar extends PDUIWidget {
     title: string;
+    //TODO: Docs
+    //Format: FF000000 (alpha, r, g, b)
     backgroundColor: string;
 
     constructor({
@@ -10,6 +12,7 @@ export class PDUIAppBar extends PDUIWidget {
         title,
         backgroundColor,
     }: { key?: string; title: string; backgroundColor: string }) {
+        //TODO: Validate the backgroundColor format
         super({
             key,
             identity: "appBar",

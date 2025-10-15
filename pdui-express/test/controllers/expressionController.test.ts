@@ -17,12 +17,9 @@ beforeAll(() => {
     pdui.init
         .start({ application: application, useJwt: false, useCache: false })
         .then((_pdui) => {
-            console.log("PDUI Initialized!!!");
             pdui.init
                 .registerRoutes({ routes: pduiRoutes })
-                .then((pduiRoutes) => {
-                    console.log("PDUI Routes registered:\n", pduiRoutes);
-                });
+                .then((_pduiRoutes) => {});
         });
 
     server = application.listen(0);

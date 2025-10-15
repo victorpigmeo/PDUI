@@ -1,11 +1,9 @@
 import type { Request, Response } from "express";
+import { logger } from "../core/PDUILogger";
 import {
     invalidateAllCache,
     invalidateCacheByExpressionId,
 } from "../cache/redisRepository";
-import pino from "pino";
-
-const logger = pino();
 
 export async function invalidateCache(request: Request, response: Response) {
     const expressionId = request.params.expressionId;

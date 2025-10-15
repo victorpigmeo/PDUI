@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { PDUI } from "../init";
+import { logger } from "../core/PDUILogger";
 
 import { v4 } from "uuid";
 
@@ -15,12 +16,20 @@ export async function getExpression(request: Request, response: Response) {
     const expressionId = request.params.expressionId!;
     const cacheId = request.query.cacheId;
 
+    const getExpressionLogger = logger.child({
+        expressionId,
+        cacheId,
+        useCache: PDUI.useCache,
+    });
+
+    getExpressionLogger.info("[PDUI] GET Expression");
+
     const route: PDUIRoute | undefined = PDUI.routes.find((route) => {
         return route.id === expressionId;
     });
 
     if (!route) {
-        // TODO: improve error handling
+        getExpressionLogger.error("[PDUI] Route not found");
         response.status(404).json({ error: "Route not found" });
     } else {
         if (PDUI.useCache) {
@@ -29,12 +38,14 @@ export async function getExpression(request: Request, response: Response) {
                     await getCacheIdByExpressionId(expressionId);
 
                 if (savedCacheId === cacheId) {
+                    getExpressionLogger.info(
+                        `[PDUI] Cache alive for expressionId: ${expressionId}`,
+                    );
                     response.status(200).json({
                         cacheAlive: true,
                     });
                 } else {
                     if (savedCacheId) {
-                        //TODO: deduplicate this
                         buildAndSendResponse(route, false, savedCacheId);
                     } else {
                         const newCacheId = await setCacheIdByExpressionId(
@@ -42,7 +53,6 @@ export async function getExpression(request: Request, response: Response) {
                             v4(),
                         );
 
-                        //TODO: deduplicate this
                         buildAndSendResponse(route, false, newCacheId);
                     }
                 }
@@ -50,7 +60,6 @@ export async function getExpression(request: Request, response: Response) {
                 const cacheId = await getCacheIdByExpressionId(expressionId);
 
                 if (cacheId) {
-                    //TODO: deduplicate this
                     buildAndSendResponse(route, false, cacheId);
                 } else {
                     //Here the client didn't send the cacheId
@@ -74,6 +83,9 @@ export async function getExpression(request: Request, response: Response) {
         cacheAlive?: Boolean,
         cacheId?: String,
     ): void {
+        getExpressionLogger.info(
+            `[PDUI] cache not alive, building expression: ${expressionId}`,
+        );
         response.status(200).json({
             payload: PBExpression.toBinary(route.handler().toExpression()),
             cacheAlive: cacheAlive,

@@ -4,6 +4,7 @@ import { jwtMiddleware } from "../auth";
 import type { PDUIRoute } from "../models/PDUIRoute";
 import { createClient, type RedisClientType } from "redis";
 import { invalidateCache } from "../controllers/cacheController";
+import { logger } from "../core/PDUILogger";
 
 export class PDUI {
     static routes: PDUIRoute[] = [];
@@ -12,15 +13,34 @@ export class PDUI {
 }
 
 async function startRedisClient() {
+    const redisHost = process.env.PDUI_REDIS_HOST;
+
+    const redisLogger = logger.child({ redisHost });
+    redisLogger.info("[PDUI] Starting Redis connection");
+
     PDUI.useCache = true;
     PDUI.redisClient = createClient({
-        url: "redis://localhost:6379",
+        url: redisHost,
         name: "pdui",
+        socket: {
+            reconnectStrategy: (retries: number) => {
+                if (retries === 20) {
+                    redisLogger.error("[PDUI] Redis max retries reached");
+                    return false;
+                }
+
+                return 1000;
+            },
+        },
     });
 
-    PDUI.redisClient.on("error", (err) =>
-        console.error("PDUI Cache error", err),
-    );
+    PDUI.redisClient.on("error", (err) => {
+        redisLogger.error(JSON.stringify(err));
+    });
+
+    PDUI.redisClient.on("connect", () => {
+        redisLogger.info("[PDUI] Redis connection successful");
+    });
 
     await PDUI.redisClient.connect();
 }
@@ -35,9 +55,16 @@ export async function start({
     useJwt: boolean;
     useCache: boolean;
 }): Promise<PDUI> {
+    const startLogger = logger.child({ useJwt, useCache });
+    startLogger.info("[PDUI] Starting");
+
     const promise = new Promise<PDUI>(async (resolve, reject) => {
         if (useCache) {
-            await startRedisClient();
+            try {
+                await startRedisClient();
+            } catch (err) {
+                throw err;
+            }
         }
 
         const pduiRoutes = express.Router();
@@ -51,7 +78,6 @@ export async function start({
             );
         } else {
             //TODO: create controller for this
-            //TODO Maybe /get-expression/:expressionId?
             pduiRoutes.get("/pdui/get-expression/:expressionId", getExpression);
         }
 
@@ -63,7 +89,10 @@ export async function start({
         application.use(pduiRoutes);
 
         if (useCache) {
-            if (!PDUI.redisClient) {
+            if (!PDUI.redisClient.isReady) {
+                startLogger.error(
+                    "[PDUI] Error connecting to Redis with useCache active",
+                );
                 reject({ error: "RedisClient not connected" });
             }
         }
@@ -82,9 +111,13 @@ export function registerRoutes({
 }: {
     routes: PDUIRoute[];
 }): Promise<PDUIRoute[]> {
+    const routerLogger = logger.child({ pduiRouteCount: routes.length });
+    routerLogger.info("[PDUI] Starting router");
+
     const promise = new Promise<PDUIRoute[]>(async (resolve, reject) => {
         const routesPromises = routes.map((route) => {
             return new Promise((resolve, _reject) => {
+                //TODO: Validate routes (expressionIds)
                 PDUI.routes.push(route);
                 resolve(route);
             });
@@ -92,10 +125,18 @@ export function registerRoutes({
 
         Promise.all(routesPromises)
             .then(() => {
+                routerLogger.info("[PDUI] Router started succesfully");
+                routerLogger.info(
+                    `[PDUI] Registered routes: [${PDUI.routes.map(
+                        (route) => route.id,
+                    )}]`,
+                );
                 resolve(PDUI.routes);
             })
             .catch((err) => {
-                console.error("PDUI Error registering routes\n", err);
+                routerLogger.error("[PDUI] Error registering routes");
+                routerLogger.error(JSON.stringify(err));
+
                 reject({ error: "Error registering routes" });
             });
     });

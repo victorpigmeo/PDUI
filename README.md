@@ -27,7 +27,7 @@ dependencies:
 PDUI Is available at the moment for these frameworks:
 
 | [ExpressJS](pdui-express/README.md) | Golang | Java Spring Boot | Clojure Pedestal  
-|-----------|------------------|----------------- 
+|---|---|---|--- 
 |:white_check_mark:[^1]|:warning:[^2]|:warning:[^2]|:warning:[^2]
 
 [^1]: WIP

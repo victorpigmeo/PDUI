@@ -14,7 +14,6 @@ export async function getCacheIdByExpressionId(
                 }
             })
             .catch((err) => {
-                console.error("PDUI Redis error\n", err);
                 reject(err);
             });
     });
@@ -31,7 +30,6 @@ export async function setCacheIdByExpressionId(
                 resolve(cacheId);
             })
             .catch((err) => {
-                console.error("PDUI Redis error\n", err);
                 reject(err);
             });
     });
@@ -47,7 +45,19 @@ export async function invalidateCacheByExpressionId(
                 resolve();
             })
             .catch((err) => {
-                console.error("PDUI Redis error\n", err);
+                reject(err);
+            });
+    });
+}
+
+export async function invalidateAllCache(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+        PDUI.redisClient
+            .flushAll()
+            .then(() => {
+                resolve();
+            })
+            .catch((err) => {
                 reject(err);
             });
     });

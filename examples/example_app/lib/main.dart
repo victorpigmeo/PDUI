@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       navigatorKey: PduiContext.navigatorKey,
-      home: PduiScreen(expressionId: "home", useCache: false),
+      home: PduiScreen(expressionId: "home", useCache: true),
     );
   }
 }

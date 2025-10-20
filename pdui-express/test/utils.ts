@@ -4,7 +4,7 @@ import { PDUIAppBar, PDUICenter, PDUIScaffold, PDUIText } from "../widgets";
 export function toBinaryBuffer(responseBody: { [key: string]: number }) {
     const buffer = [];
 
-    for (const [key, value] of Object.entries(responseBody)) {
+    for (const [_key, value] of Object.entries(responseBody)) {
         buffer.push(value);
     }
 
@@ -15,6 +15,8 @@ export function expressionById(expressionId: string): PDUIWidget {
     switch (expressionId) {
         case "home":
             return buildHomeTestExpression();
+        case "about":
+            return buildAboutTestExpression();
         default:
             return new PDUIText({ data: "Default text expression" });
     }
@@ -28,6 +30,18 @@ function buildHomeTestExpression(): PDUIWidget {
         }),
         body: new PDUICenter({
             child: new PDUIText({ data: "Centered Text" }),
+        }),
+    });
+}
+
+function buildAboutTestExpression(): PDUIWidget {
+    return new PDUIScaffold({
+        appBar: new PDUIAppBar({
+            title: "AppBar Test",
+            backgroundColor: "#FFFF0000",
+        }),
+        body: new PDUICenter({
+            child: new PDUIText({ data: "About this app" }),
         }),
     });
 }

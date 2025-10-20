@@ -117,9 +117,20 @@ export function registerRoutes({
     const promise = new Promise<PDUIRoute[]>(async (resolve, reject) => {
         const routesPromises = routes.map((route) => {
             return new Promise((resolve, _reject) => {
-                //TODO: Validate routes (expressionIds)
-                PDUI.routes.push(route);
-                resolve(route);
+                const routePathRegex: RegExp = new RegExp(
+                    "^[a-zA-Z.-_][^0-9]+$",
+                );
+
+                if (routePathRegex.test(route.id)) {
+                    PDUI.routes.push(route);
+                    resolve(route);
+                } else {
+                    reject(
+                        new Error(
+                            `Error registering route: '${route.id}', some characters are not allowed (Allowed characters: a-zA-Z.-_)`,
+                        ),
+                    );
+                }
             });
         });
 

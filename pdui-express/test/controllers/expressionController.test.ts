@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, expect, test } from "bun:test";
+import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import pdui from "../../index.ts";
 import express from "express";
 import request from "supertest";
@@ -13,7 +13,7 @@ const pduiRoutes: PDUIRoute[] = [
     new PDUIRoute({ id: "home", handler: () => expressionById("home") }),
 ];
 
-beforeAll(() => {
+beforeEach(() => {
     pdui.init
         .start({ application: application, useJwt: false, useCache: false })
         .then((_pdui) => {
@@ -25,7 +25,7 @@ beforeAll(() => {
     server = application.listen(0);
 });
 
-afterAll(() => {
+afterEach(() => {
     server.close();
 });
 

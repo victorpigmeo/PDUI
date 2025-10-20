@@ -17,7 +17,7 @@ class PduiNavigation extends PduiFn {
         builder: (context) => PduiScreen(
           expressionId: pbNavigation.expressionId,
           //TODO: Remove useCache from the flutter side, control from the backend
-          useCache: false,
+          useCache: true,
         ),
       ),
     );

@@ -12,9 +12,13 @@ class PduiElevatedButton {
     return ElevatedButton(
       key: pbElevatedButton.key != "" ? Key(pbElevatedButton.key) : null,
       onPressed: () {
-        PduiFnExpressionParser.parse(pbElevatedButton.elevatedButton.onPressed);
+        PduiFnExpressionResolver.parse(
+          pbElevatedButton.elevatedButton.onPressed,
+        );
       },
-      child: PduiExpressionParser.parse(pbElevatedButton.elevatedButton.child),
+      child: PduiExpressionResolver.parse(
+        pbElevatedButton.elevatedButton.child,
+      ),
     );
   }
 }

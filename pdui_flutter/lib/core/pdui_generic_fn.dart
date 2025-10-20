@@ -10,7 +10,7 @@ class PduiGenericFn extends PduiFn {
   @override
   resolve() {
     pbFnExpression.genericFn.body.forEach((key, body) {
-      PduiFnExpressionParser.parse(body);
+      PduiFnExpressionResolver.parse(body);
     });
   }
 }

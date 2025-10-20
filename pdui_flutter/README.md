@@ -10,6 +10,11 @@ dependencies:
 ```
 Then run `flutter pub get` to download the library
 
+To run the tests run:
+```bash 
+flutter test
+```
+
 ### Getting started
 You just need to use the `PduiScreen` widget wherever you want on your application.
 If you want to use `PDUINavigation` you need to set the `navigatorKey` as indicated below.

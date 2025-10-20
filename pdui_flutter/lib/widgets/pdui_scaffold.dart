@@ -14,7 +14,7 @@ class PduiScaffold extends PduiWidget {
     return Scaffold(
       key: pbScaffold.key != "" ? Key(pbScaffold.key) : null,
       appBar: PduiAppBar(pbScaffold.scaffold.appBar).resolve(),
-      body: PduiExpressionParser.parse(pbScaffold.scaffold.body),
+      body: PduiExpressionResolver.parse(pbScaffold.scaffold.body),
     );
   }
 }

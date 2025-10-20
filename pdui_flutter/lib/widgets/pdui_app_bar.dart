@@ -10,7 +10,7 @@ class PduiAppBar extends PduiWidget {
 
   @override
   AppBar resolve() {
-    late Color backgroundColor;
+    late Color backgroundColor = Color(int.parse("00000000", radix: 16));
 
     if (pbAppBar.appBar.backgroundColor != "") {
       String argbColor = pbAppBar.appBar.backgroundColor.replaceAll("#", "");

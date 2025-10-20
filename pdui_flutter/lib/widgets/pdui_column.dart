@@ -12,7 +12,7 @@ class PduiColumn {
     List<Widget> children = List.empty(growable: true);
 
     for (var child in pbColumn.column.children) {
-      children.add(PduiExpressionParser.parse(child));
+      children.add(PduiExpressionResolver.parse(child));
     }
 
     return Column(

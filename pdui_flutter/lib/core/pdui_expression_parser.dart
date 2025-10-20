@@ -12,8 +12,8 @@ import 'pdui_navigation.dart';
 import 'pdui_pop_navigation.dart';
 
 //TODO: Maybe use strategy pattern?
-class PduiExpressionParser {
-  static Widget parse(PBExpression pbExpression) {
+class PduiExpressionResolver {
+  static parse(PBExpression pbExpression) {
     switch (pbExpression.identity) {
       case "scaffold":
         return PduiScaffold(pbExpression).resolve();
@@ -33,7 +33,7 @@ class PduiExpressionParser {
   }
 }
 
-class PduiFnExpressionParser {
+class PduiFnExpressionResolver {
   static parse(PBFnExpression pbFnExpression) {
     switch (pbFnExpression.identity) {
       case "genericFn":

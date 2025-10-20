@@ -13,7 +13,7 @@ class PduiCenter extends PduiWidget {
   Center resolve() {
     return Center(
       key: pbCenter.key != "" ? Key(pbCenter.key) : null,
-      child: PduiExpressionParser.parse(pbCenter.center.child),
+      child: PduiExpressionResolver.parse(pbCenter.center.child),
     );
   }
 }

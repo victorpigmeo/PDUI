@@ -9,6 +9,6 @@ class PduiExpression {
   PduiExpression(this.pbExpression);
 
   Widget resolve() {
-    return PduiExpressionParser.parse(pbExpression);
+    return PduiExpressionResolver.parse(pbExpression);
   }
 }

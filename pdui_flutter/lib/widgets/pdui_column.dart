@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/pdui_expression_parser.dart';
+import '../core/pdui_expression_resolver.dart';
 import '../proto_out/pdui-proto-out.pb.dart';
 
 class PduiColumn {

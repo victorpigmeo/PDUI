@@ -27,6 +27,13 @@ export class HomeController {
                     children: [
                         new PDUIText({ data: "HOME SCREEN" }),
                         new PDUIElevatedButton({
+                            child: new PDUIText({ data: "To form" }),
+                            onPressed: new PDUINavigation({
+                                expressionId: "form",
+                            }),
+                        }),
+
+                        new PDUIElevatedButton({
                             child: new PDUIText({ data: "Press me" }),
                             onPressed: new PDUIGenericFn({
                                 params: {

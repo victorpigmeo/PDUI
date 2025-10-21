@@ -9,7 +9,7 @@ import {
     PDUIText,
 } from "pdui-express/widgets";
 
-export class AbountController {
+export class AboutController {
     static build(): PDUIWidget {
         return new PDUIScaffold({
             appBar: new PDUIAppBar({

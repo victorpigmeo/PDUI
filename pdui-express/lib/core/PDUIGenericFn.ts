@@ -10,13 +10,13 @@ export class PDUIGenericFn extends PDUIFn {
         body,
     }: {
         name?: string;
-        params: { [key: string]: number | string | boolean };
+        params?: { [key: string]: number | string | boolean };
         body: () => PDUIFn[];
     }) {
         super({
             identity: "genericFn",
             name,
-            params: parseParams(name, params),
+            params: params ? parseParams(name, params) : {},
             body: parseBody(name, body),
         });
     }

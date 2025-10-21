@@ -33,6 +33,7 @@ export class PDUIElevatedButton extends PDUIWidget {
     override toPB(): PBElevatedButton {
         return {
             child: this.child.toPB(),
+            onPressed: this.onPressed.toPB(),
         };
     }
 

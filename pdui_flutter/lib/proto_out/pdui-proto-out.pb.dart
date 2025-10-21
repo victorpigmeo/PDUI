@@ -393,6 +393,264 @@ class PBElevatedButton extends $pb.GeneratedMessage {
   PBFnExpression ensureOnPressed() => $_ensure(1);
 }
 
+class PBForm extends $pb.GeneratedMessage {
+  factory PBForm({
+    PBExpression? child,
+  }) {
+    final result = create();
+    if (child != null) result.child = child;
+    return result;
+  }
+
+  PBForm._();
+
+  factory PBForm.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PBForm.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PBForm',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
+      createEmptyInstance: create)
+    ..aOM<PBExpression>(1, _omitFieldNames ? '' : 'child',
+        subBuilder: PBExpression.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBForm clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBForm copyWith(void Function(PBForm) updates) =>
+      super.copyWith((message) => updates(message as PBForm)) as PBForm;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PBForm create() => PBForm._();
+  @$core.override
+  PBForm createEmptyInstance() => create();
+  static $pb.PbList<PBForm> createRepeated() => $pb.PbList<PBForm>();
+  @$core.pragma('dart2js:noInline')
+  static PBForm getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PBForm>(create);
+  static PBForm? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  PBExpression get child => $_getN(0);
+  @$pb.TagNumber(1)
+  set child(PBExpression value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChild() => $_clearField(1);
+  @$pb.TagNumber(1)
+  PBExpression ensureChild() => $_ensure(0);
+}
+
+class PBTextFormFieldDecoration extends $pb.GeneratedMessage {
+  factory PBTextFormFieldDecoration({
+    $core.String? labelText,
+  }) {
+    final result = create();
+    if (labelText != null) result.labelText = labelText;
+    return result;
+  }
+
+  PBTextFormFieldDecoration._();
+
+  factory PBTextFormFieldDecoration.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PBTextFormFieldDecoration.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PBTextFormFieldDecoration',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'labelText', protoName: 'labelText')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBTextFormFieldDecoration clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBTextFormFieldDecoration copyWith(
+          void Function(PBTextFormFieldDecoration) updates) =>
+      super.copyWith((message) => updates(message as PBTextFormFieldDecoration))
+          as PBTextFormFieldDecoration;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PBTextFormFieldDecoration create() => PBTextFormFieldDecoration._();
+  @$core.override
+  PBTextFormFieldDecoration createEmptyInstance() => create();
+  static $pb.PbList<PBTextFormFieldDecoration> createRepeated() =>
+      $pb.PbList<PBTextFormFieldDecoration>();
+  @$core.pragma('dart2js:noInline')
+  static PBTextFormFieldDecoration getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PBTextFormFieldDecoration>(create);
+  static PBTextFormFieldDecoration? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get labelText => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set labelText($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasLabelText() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLabelText() => $_clearField(1);
+}
+
+class PBTextFormField extends $pb.GeneratedMessage {
+  factory PBTextFormField({
+    $core.String? formKey,
+    PBKeyboardType? keyboardType,
+    PBTextFormFieldDecoration? decoration,
+    $core.bool? obscureText,
+    $core.bool? notEmpty,
+    $core.int? minLength,
+    $core.int? maxLength,
+    $core.int? maxLines,
+  }) {
+    final result = create();
+    if (formKey != null) result.formKey = formKey;
+    if (keyboardType != null) result.keyboardType = keyboardType;
+    if (decoration != null) result.decoration = decoration;
+    if (obscureText != null) result.obscureText = obscureText;
+    if (notEmpty != null) result.notEmpty = notEmpty;
+    if (minLength != null) result.minLength = minLength;
+    if (maxLength != null) result.maxLength = maxLength;
+    if (maxLines != null) result.maxLines = maxLines;
+    return result;
+  }
+
+  PBTextFormField._();
+
+  factory PBTextFormField.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PBTextFormField.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PBTextFormField',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'formKey', protoName: 'formKey')
+    ..aE<PBKeyboardType>(2, _omitFieldNames ? '' : 'keyboardType',
+        protoName: 'keyboardType', enumValues: PBKeyboardType.values)
+    ..aOM<PBTextFormFieldDecoration>(3, _omitFieldNames ? '' : 'decoration',
+        subBuilder: PBTextFormFieldDecoration.create)
+    ..aOB(4, _omitFieldNames ? '' : 'obscureText', protoName: 'obscureText')
+    ..aOB(5, _omitFieldNames ? '' : 'notEmpty', protoName: 'notEmpty')
+    ..aI(6, _omitFieldNames ? '' : 'minLength', protoName: 'minLength')
+    ..aI(7, _omitFieldNames ? '' : 'maxLength', protoName: 'maxLength')
+    ..aI(8, _omitFieldNames ? '' : 'maxLines', protoName: 'maxLines')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBTextFormField clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBTextFormField copyWith(void Function(PBTextFormField) updates) =>
+      super.copyWith((message) => updates(message as PBTextFormField))
+          as PBTextFormField;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PBTextFormField create() => PBTextFormField._();
+  @$core.override
+  PBTextFormField createEmptyInstance() => create();
+  static $pb.PbList<PBTextFormField> createRepeated() =>
+      $pb.PbList<PBTextFormField>();
+  @$core.pragma('dart2js:noInline')
+  static PBTextFormField getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PBTextFormField>(create);
+  static PBTextFormField? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get formKey => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set formKey($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasFormKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFormKey() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  PBKeyboardType get keyboardType => $_getN(1);
+  @$pb.TagNumber(2)
+  set keyboardType(PBKeyboardType value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasKeyboardType() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKeyboardType() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  PBTextFormFieldDecoration get decoration => $_getN(2);
+  @$pb.TagNumber(3)
+  set decoration(PBTextFormFieldDecoration value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDecoration() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDecoration() => $_clearField(3);
+  @$pb.TagNumber(3)
+  PBTextFormFieldDecoration ensureDecoration() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $core.bool get obscureText => $_getBF(3);
+  @$pb.TagNumber(4)
+  set obscureText($core.bool value) => $_setBool(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasObscureText() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearObscureText() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.bool get notEmpty => $_getBF(4);
+  @$pb.TagNumber(5)
+  set notEmpty($core.bool value) => $_setBool(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasNotEmpty() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearNotEmpty() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get minLength => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set minLength($core.int value) => $_setSignedInt32(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasMinLength() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearMinLength() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.int get maxLength => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set maxLength($core.int value) => $_setSignedInt32(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasMaxLength() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearMaxLength() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.int get maxLines => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set maxLines($core.int value) => $_setSignedInt32(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasMaxLines() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearMaxLines() => $_clearField(8);
+}
+
 enum PBFnParameter_Value {
   stringValue,
   intValue,
@@ -621,9 +879,11 @@ class PBFn extends $pb.GeneratedMessage {
 class PBDebugPrint extends $pb.GeneratedMessage {
   factory PBDebugPrint({
     PBExpression? expression,
+    PBFnExpression? fnExpression,
   }) {
     final result = create();
     if (expression != null) result.expression = expression;
+    if (fnExpression != null) result.fnExpression = fnExpression;
     return result;
   }
 
@@ -642,6 +902,8 @@ class PBDebugPrint extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOM<PBExpression>(1, _omitFieldNames ? '' : 'expression',
         subBuilder: PBExpression.create)
+    ..aOM<PBFnExpression>(2, _omitFieldNames ? '' : 'fnExpression',
+        protoName: 'fnExpression', subBuilder: PBFnExpression.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -675,6 +937,17 @@ class PBDebugPrint extends $pb.GeneratedMessage {
   void clearExpression() => $_clearField(1);
   @$pb.TagNumber(1)
   PBExpression ensureExpression() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  PBFnExpression get fnExpression => $_getN(1);
+  @$pb.TagNumber(2)
+  set fnExpression(PBFnExpression value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasFnExpression() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFnExpression() => $_clearField(2);
+  @$pb.TagNumber(2)
+  PBFnExpression ensureFnExpression() => $_ensure(1);
 }
 
 class PBNavigation extends $pb.GeneratedMessage {
@@ -773,11 +1046,125 @@ class PBPopNavigation extends $pb.GeneratedMessage {
   static PBPopNavigation? _defaultInstance;
 }
 
+class PBGetFormData extends $pb.GeneratedMessage {
+  factory PBGetFormData({
+    $core.String? formKey,
+  }) {
+    final result = create();
+    if (formKey != null) result.formKey = formKey;
+    return result;
+  }
+
+  PBGetFormData._();
+
+  factory PBGetFormData.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PBGetFormData.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PBGetFormData',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'formKey', protoName: 'formKey')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBGetFormData clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBGetFormData copyWith(void Function(PBGetFormData) updates) =>
+      super.copyWith((message) => updates(message as PBGetFormData))
+          as PBGetFormData;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PBGetFormData create() => PBGetFormData._();
+  @$core.override
+  PBGetFormData createEmptyInstance() => create();
+  static $pb.PbList<PBGetFormData> createRepeated() =>
+      $pb.PbList<PBGetFormData>();
+  @$core.pragma('dart2js:noInline')
+  static PBGetFormData getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PBGetFormData>(create);
+  static PBGetFormData? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get formKey => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set formKey($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasFormKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFormKey() => $_clearField(1);
+}
+
+class PBValidateForm extends $pb.GeneratedMessage {
+  factory PBValidateForm({
+    $core.String? formKey,
+  }) {
+    final result = create();
+    if (formKey != null) result.formKey = formKey;
+    return result;
+  }
+
+  PBValidateForm._();
+
+  factory PBValidateForm.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PBValidateForm.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PBValidateForm',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'formKey', protoName: 'formKey')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBValidateForm clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PBValidateForm copyWith(void Function(PBValidateForm) updates) =>
+      super.copyWith((message) => updates(message as PBValidateForm))
+          as PBValidateForm;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PBValidateForm create() => PBValidateForm._();
+  @$core.override
+  PBValidateForm createEmptyInstance() => create();
+  static $pb.PbList<PBValidateForm> createRepeated() =>
+      $pb.PbList<PBValidateForm>();
+  @$core.pragma('dart2js:noInline')
+  static PBValidateForm getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PBValidateForm>(create);
+  static PBValidateForm? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get formKey => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set formKey($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasFormKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFormKey() => $_clearField(1);
+}
+
 enum PBFnExpression_Payload {
   genericFn,
   debugPrint,
   navigation,
   popNavigation,
+  getFormData,
+  validateForm,
   notSet
 }
 
@@ -788,6 +1175,8 @@ class PBFnExpression extends $pb.GeneratedMessage {
     PBDebugPrint? debugPrint,
     PBNavigation? navigation,
     PBPopNavigation? popNavigation,
+    PBGetFormData? getFormData,
+    PBValidateForm? validateForm,
   }) {
     final result = create();
     if (identity != null) result.identity = identity;
@@ -795,6 +1184,8 @@ class PBFnExpression extends $pb.GeneratedMessage {
     if (debugPrint != null) result.debugPrint = debugPrint;
     if (navigation != null) result.navigation = navigation;
     if (popNavigation != null) result.popNavigation = popNavigation;
+    if (getFormData != null) result.getFormData = getFormData;
+    if (validateForm != null) result.validateForm = validateForm;
     return result;
   }
 
@@ -813,13 +1204,15 @@ class PBFnExpression extends $pb.GeneratedMessage {
     3: PBFnExpression_Payload.debugPrint,
     4: PBFnExpression_Payload.navigation,
     5: PBFnExpression_Payload.popNavigation,
+    6: PBFnExpression_Payload.getFormData,
+    7: PBFnExpression_Payload.validateForm,
     0: PBFnExpression_Payload.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'PBFnExpression',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
       createEmptyInstance: create)
-    ..oo(0, [2, 3, 4, 5])
+    ..oo(0, [2, 3, 4, 5, 6, 7])
     ..aOS(1, _omitFieldNames ? '' : 'identity')
     ..aOM<PBFn>(2, _omitFieldNames ? '' : 'genericFn',
         protoName: 'genericFn', subBuilder: PBFn.create)
@@ -829,6 +1222,10 @@ class PBFnExpression extends $pb.GeneratedMessage {
         subBuilder: PBNavigation.create)
     ..aOM<PBPopNavigation>(5, _omitFieldNames ? '' : 'popNavigation',
         protoName: 'popNavigation', subBuilder: PBPopNavigation.create)
+    ..aOM<PBGetFormData>(6, _omitFieldNames ? '' : 'getFormData',
+        protoName: 'getFormData', subBuilder: PBGetFormData.create)
+    ..aOM<PBValidateForm>(7, _omitFieldNames ? '' : 'validateForm',
+        protoName: 'validateForm', subBuilder: PBValidateForm.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -856,12 +1253,16 @@ class PBFnExpression extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   @$pb.TagNumber(4)
   @$pb.TagNumber(5)
+  @$pb.TagNumber(6)
+  @$pb.TagNumber(7)
   PBFnExpression_Payload whichPayload() =>
       _PBFnExpression_PayloadByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(2)
   @$pb.TagNumber(3)
   @$pb.TagNumber(4)
   @$pb.TagNumber(5)
+  @$pb.TagNumber(6)
+  @$pb.TagNumber(7)
   void clearPayload() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -916,6 +1317,28 @@ class PBFnExpression extends $pb.GeneratedMessage {
   void clearPopNavigation() => $_clearField(5);
   @$pb.TagNumber(5)
   PBPopNavigation ensurePopNavigation() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  PBGetFormData get getFormData => $_getN(5);
+  @$pb.TagNumber(6)
+  set getFormData(PBGetFormData value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasGetFormData() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearGetFormData() => $_clearField(6);
+  @$pb.TagNumber(6)
+  PBGetFormData ensureGetFormData() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  PBValidateForm get validateForm => $_getN(6);
+  @$pb.TagNumber(7)
+  set validateForm(PBValidateForm value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasValidateForm() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearValidateForm() => $_clearField(7);
+  @$pb.TagNumber(7)
+  PBValidateForm ensureValidateForm() => $_ensure(6);
 }
 
 enum PBExpression_Payload {
@@ -926,6 +1349,8 @@ enum PBExpression_Payload {
   appBar,
   column,
   elevatedButton,
+  form,
+  textFormField,
   notSet
 }
 
@@ -940,6 +1365,8 @@ class PBExpression extends $pb.GeneratedMessage {
     PBAppBar? appBar,
     PBColumn? column,
     PBElevatedButton? elevatedButton,
+    PBForm? form,
+    PBTextFormField? textFormField,
   }) {
     final result = create();
     if (key != null) result.key = key;
@@ -951,6 +1378,8 @@ class PBExpression extends $pb.GeneratedMessage {
     if (appBar != null) result.appBar = appBar;
     if (column != null) result.column = column;
     if (elevatedButton != null) result.elevatedButton = elevatedButton;
+    if (form != null) result.form = form;
+    if (textFormField != null) result.textFormField = textFormField;
     return result;
   }
 
@@ -972,13 +1401,15 @@ class PBExpression extends $pb.GeneratedMessage {
     7: PBExpression_Payload.appBar,
     8: PBExpression_Payload.column,
     9: PBExpression_Payload.elevatedButton,
+    10: PBExpression_Payload.form,
+    11: PBExpression_Payload.textFormField,
     0: PBExpression_Payload.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'PBExpression',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'PDUI'),
       createEmptyInstance: create)
-    ..oo(0, [3, 4, 5, 6, 7, 8, 9])
+    ..oo(0, [3, 4, 5, 6, 7, 8, 9, 10, 11])
     ..aOS(1, _omitFieldNames ? '' : 'key')
     ..aOS(2, _omitFieldNames ? '' : 'identity')
     ..aOS(3, _omitFieldNames ? '' : 'rawString', protoName: 'rawString')
@@ -993,6 +1424,9 @@ class PBExpression extends $pb.GeneratedMessage {
         subBuilder: PBColumn.create)
     ..aOM<PBElevatedButton>(9, _omitFieldNames ? '' : 'elevatedButton',
         protoName: 'elevatedButton', subBuilder: PBElevatedButton.create)
+    ..aOM<PBForm>(10, _omitFieldNames ? '' : 'form', subBuilder: PBForm.create)
+    ..aOM<PBTextFormField>(11, _omitFieldNames ? '' : 'textFormField',
+        protoName: 'textFormField', subBuilder: PBTextFormField.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1023,6 +1457,8 @@ class PBExpression extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   @$pb.TagNumber(8)
   @$pb.TagNumber(9)
+  @$pb.TagNumber(10)
+  @$pb.TagNumber(11)
   PBExpression_Payload whichPayload() =>
       _PBExpression_PayloadByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(3)
@@ -1032,6 +1468,8 @@ class PBExpression extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   @$pb.TagNumber(8)
   @$pb.TagNumber(9)
+  @$pb.TagNumber(10)
+  @$pb.TagNumber(11)
   void clearPayload() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -1126,6 +1564,28 @@ class PBExpression extends $pb.GeneratedMessage {
   void clearElevatedButton() => $_clearField(9);
   @$pb.TagNumber(9)
   PBElevatedButton ensureElevatedButton() => $_ensure(8);
+
+  @$pb.TagNumber(10)
+  PBForm get form => $_getN(9);
+  @$pb.TagNumber(10)
+  set form(PBForm value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasForm() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearForm() => $_clearField(10);
+  @$pb.TagNumber(10)
+  PBForm ensureForm() => $_ensure(9);
+
+  @$pb.TagNumber(11)
+  PBTextFormField get textFormField => $_getN(10);
+  @$pb.TagNumber(11)
+  set textFormField(PBTextFormField value) => $_setField(11, value);
+  @$pb.TagNumber(11)
+  $core.bool hasTextFormField() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearTextFormField() => $_clearField(11);
+  @$pb.TagNumber(11)
+  PBTextFormField ensureTextFormField() => $_ensure(10);
 }
 
 const $core.bool _omitFieldNames =

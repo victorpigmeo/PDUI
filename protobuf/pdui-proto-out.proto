@@ -29,6 +29,33 @@ message PBElevatedButton {
   PBFnExpression onPressed = 2;
 }
 
+message PBForm {
+  PBExpression child = 1;
+}
+
+enum PBKeyboardType {
+  TEXT = 0;
+  EMAIL_ADDRESS = 1;
+  NUMBER = 2;
+  MULTILINE = 3;
+  DATE_TIME = 4;
+}
+
+message PBTextFormFieldDecoration {
+  optional string labelText = 1;
+}
+
+message PBTextFormField {
+  string formKey = 1;
+  optional PBKeyboardType keyboardType = 2;
+  optional PBTextFormFieldDecoration decoration = 3;
+  optional bool obscureText = 4;
+  optional bool notEmpty = 5;
+  optional int32 minLength = 6;
+  optional int32 maxLength = 7;
+  optional int32 maxLines = 8;
+}
+
 enum PBDataType {
   STRING = 0;
   INT = 1;
@@ -53,17 +80,26 @@ message PBFn {
   map<string, PBFnExpression> body = 3;
 }
 
-message PBDebugPrint{
-  PBExpression expression = 1;
+message PBDebugPrint {
+  optional PBExpression expression = 1;
+  optional PBFnExpression fnExpression = 2;
 }
 
-message PBNavigation{
+message PBNavigation {
   string expressionId = 1;
   //TODO: Support data on navigation
 }
 
-message PBPopNavigation{
+message PBPopNavigation {
   //TODO: Support data on pop
+}
+
+message PBGetFormData {
+  string formKey = 1;
+}
+
+message PBValidateForm {
+  string formKey = 1;
 }
 
 message PBFnExpression {
@@ -73,6 +109,8 @@ message PBFnExpression {
     PBDebugPrint debugPrint = 3;
     PBNavigation navigation = 4;
     PBPopNavigation popNavigation = 5;
+    PBGetFormData getFormData = 6;
+    PBValidateForm validateForm = 7;
   }
 }
 
@@ -87,5 +125,7 @@ message PBExpression {
     PBAppBar appBar = 7;
     PBColumn column = 8;
     PBElevatedButton elevatedButton = 9;
+    PBForm form = 10;
+    PBTextFormField textFormField = 11;
   }
 }

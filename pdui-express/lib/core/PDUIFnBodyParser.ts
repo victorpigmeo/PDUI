@@ -14,6 +14,8 @@ export function parseBody(
                 case "debugPrint":
                 case "navigation":
                 case "popNavigation":
+                case "getFormData":
+                case "validateForm":
                 case "generic":
                     pbParsedBody[i + 1] = fnBodyFns[i]!.toFnExpression();
                     break;

@@ -77,6 +77,61 @@ export interface PBElevatedButton {
     onPressed?: PBFnExpression;
 }
 /**
+ * @generated from protobuf message PDUI.PBForm
+ */
+export interface PBForm {
+    /**
+     * @generated from protobuf field: PDUI.PBExpression child = 1
+     */
+    child?: PBExpression;
+}
+/**
+ * @generated from protobuf message PDUI.PBTextFormFieldDecoration
+ */
+export interface PBTextFormFieldDecoration {
+    /**
+     * @generated from protobuf field: optional string labelText = 1
+     */
+    labelText?: string;
+}
+/**
+ * @generated from protobuf message PDUI.PBTextFormField
+ */
+export interface PBTextFormField {
+    /**
+     * @generated from protobuf field: string formKey = 1
+     */
+    formKey: string;
+    /**
+     * @generated from protobuf field: optional PDUI.PBKeyboardType keyboardType = 2
+     */
+    keyboardType?: PBKeyboardType;
+    /**
+     * @generated from protobuf field: optional PDUI.PBTextFormFieldDecoration decoration = 3
+     */
+    decoration?: PBTextFormFieldDecoration;
+    /**
+     * @generated from protobuf field: optional bool obscureText = 4
+     */
+    obscureText?: boolean;
+    /**
+     * @generated from protobuf field: optional bool notEmpty = 5
+     */
+    notEmpty?: boolean;
+    /**
+     * @generated from protobuf field: optional int32 minLength = 6
+     */
+    minLength?: number;
+    /**
+     * @generated from protobuf field: optional int32 maxLength = 7
+     */
+    maxLength?: number;
+    /**
+     * @generated from protobuf field: optional int32 maxLines = 8
+     */
+    maxLines?: number;
+}
+/**
  * @generated from protobuf message PDUI.PBFnParameter
  */
 export interface PBFnParameter {
@@ -145,9 +200,13 @@ export interface PBFn {
  */
 export interface PBDebugPrint {
     /**
-     * @generated from protobuf field: PDUI.PBExpression expression = 1
+     * @generated from protobuf field: optional PDUI.PBExpression expression = 1
      */
     expression?: PBExpression;
+    /**
+     * @generated from protobuf field: optional PDUI.PBFnExpression fnExpression = 2
+     */
+    fnExpression?: PBFnExpression;
 }
 /**
  * @generated from protobuf message PDUI.PBNavigation
@@ -164,6 +223,24 @@ export interface PBNavigation {
  * @generated from protobuf message PDUI.PBPopNavigation
  */
 export interface PBPopNavigation {
+}
+/**
+ * @generated from protobuf message PDUI.PBGetFormData
+ */
+export interface PBGetFormData {
+    /**
+     * @generated from protobuf field: string formKey = 1
+     */
+    formKey: string;
+}
+/**
+ * @generated from protobuf message PDUI.PBValidateForm
+ */
+export interface PBValidateForm {
+    /**
+     * @generated from protobuf field: string formKey = 1
+     */
+    formKey: string;
 }
 /**
  * @generated from protobuf message PDUI.PBFnExpression
@@ -200,6 +277,18 @@ export interface PBFnExpression {
          * @generated from protobuf field: PDUI.PBPopNavigation popNavigation = 5
          */
         popNavigation: PBPopNavigation;
+    } | {
+        oneofKind: "getFormData";
+        /**
+         * @generated from protobuf field: PDUI.PBGetFormData getFormData = 6
+         */
+        getFormData: PBGetFormData;
+    } | {
+        oneofKind: "validateForm";
+        /**
+         * @generated from protobuf field: PDUI.PBValidateForm validateForm = 7
+         */
+        validateForm: PBValidateForm;
     } | {
         oneofKind: undefined;
     };
@@ -262,8 +351,45 @@ export interface PBExpression {
          */
         elevatedButton: PBElevatedButton;
     } | {
+        oneofKind: "form";
+        /**
+         * @generated from protobuf field: PDUI.PBForm form = 10
+         */
+        form: PBForm;
+    } | {
+        oneofKind: "textFormField";
+        /**
+         * @generated from protobuf field: PDUI.PBTextFormField textFormField = 11
+         */
+        textFormField: PBTextFormField;
+    } | {
         oneofKind: undefined;
     };
+}
+/**
+ * @generated from protobuf enum PDUI.PBKeyboardType
+ */
+export enum PBKeyboardType {
+    /**
+     * @generated from protobuf enum value: TEXT = 0;
+     */
+    TEXT = 0,
+    /**
+     * @generated from protobuf enum value: EMAIL_ADDRESS = 1;
+     */
+    EMAIL_ADDRESS = 1,
+    /**
+     * @generated from protobuf enum value: NUMBER = 2;
+     */
+    NUMBER = 2,
+    /**
+     * @generated from protobuf enum value: MULTILINE = 3;
+     */
+    MULTILINE = 3,
+    /**
+     * @generated from protobuf enum value: DATE_TIME = 4;
+     */
+    DATE_TIME = 4
 }
 /**
  * @generated from protobuf enum PDUI.PBDataType
@@ -588,6 +714,194 @@ class PBElevatedButton$Type extends MessageType<PBElevatedButton> {
  */
 export const PBElevatedButton = new PBElevatedButton$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class PBForm$Type extends MessageType<PBForm> {
+    constructor() {
+        super("PDUI.PBForm", [
+            { no: 1, name: "child", kind: "message", T: () => PBExpression }
+        ]);
+    }
+    create(value?: PartialMessage<PBForm>): PBForm {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<PBForm>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PBForm): PBForm {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* PDUI.PBExpression child */ 1:
+                    message.child = PBExpression.internalBinaryRead(reader, reader.uint32(), options, message.child);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: PBForm, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* PDUI.PBExpression child = 1; */
+        if (message.child)
+            PBExpression.internalBinaryWrite(message.child, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message PDUI.PBForm
+ */
+export const PBForm = new PBForm$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class PBTextFormFieldDecoration$Type extends MessageType<PBTextFormFieldDecoration> {
+    constructor() {
+        super("PDUI.PBTextFormFieldDecoration", [
+            { no: 1, name: "labelText", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<PBTextFormFieldDecoration>): PBTextFormFieldDecoration {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<PBTextFormFieldDecoration>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PBTextFormFieldDecoration): PBTextFormFieldDecoration {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* optional string labelText */ 1:
+                    message.labelText = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: PBTextFormFieldDecoration, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* optional string labelText = 1; */
+        if (message.labelText !== undefined)
+            writer.tag(1, WireType.LengthDelimited).string(message.labelText);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message PDUI.PBTextFormFieldDecoration
+ */
+export const PBTextFormFieldDecoration = new PBTextFormFieldDecoration$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class PBTextFormField$Type extends MessageType<PBTextFormField> {
+    constructor() {
+        super("PDUI.PBTextFormField", [
+            { no: 1, name: "formKey", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "keyboardType", kind: "enum", opt: true, T: () => ["PDUI.PBKeyboardType", PBKeyboardType] },
+            { no: 3, name: "decoration", kind: "message", T: () => PBTextFormFieldDecoration },
+            { no: 4, name: "obscureText", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
+            { no: 5, name: "notEmpty", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
+            { no: 6, name: "minLength", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
+            { no: 7, name: "maxLength", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
+            { no: 8, name: "maxLines", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
+        ]);
+    }
+    create(value?: PartialMessage<PBTextFormField>): PBTextFormField {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.formKey = "";
+        if (value !== undefined)
+            reflectionMergePartial<PBTextFormField>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PBTextFormField): PBTextFormField {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string formKey */ 1:
+                    message.formKey = reader.string();
+                    break;
+                case /* optional PDUI.PBKeyboardType keyboardType */ 2:
+                    message.keyboardType = reader.int32();
+                    break;
+                case /* optional PDUI.PBTextFormFieldDecoration decoration */ 3:
+                    message.decoration = PBTextFormFieldDecoration.internalBinaryRead(reader, reader.uint32(), options, message.decoration);
+                    break;
+                case /* optional bool obscureText */ 4:
+                    message.obscureText = reader.bool();
+                    break;
+                case /* optional bool notEmpty */ 5:
+                    message.notEmpty = reader.bool();
+                    break;
+                case /* optional int32 minLength */ 6:
+                    message.minLength = reader.int32();
+                    break;
+                case /* optional int32 maxLength */ 7:
+                    message.maxLength = reader.int32();
+                    break;
+                case /* optional int32 maxLines */ 8:
+                    message.maxLines = reader.int32();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: PBTextFormField, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string formKey = 1; */
+        if (message.formKey !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.formKey);
+        /* optional PDUI.PBKeyboardType keyboardType = 2; */
+        if (message.keyboardType !== undefined)
+            writer.tag(2, WireType.Varint).int32(message.keyboardType);
+        /* optional PDUI.PBTextFormFieldDecoration decoration = 3; */
+        if (message.decoration)
+            PBTextFormFieldDecoration.internalBinaryWrite(message.decoration, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        /* optional bool obscureText = 4; */
+        if (message.obscureText !== undefined)
+            writer.tag(4, WireType.Varint).bool(message.obscureText);
+        /* optional bool notEmpty = 5; */
+        if (message.notEmpty !== undefined)
+            writer.tag(5, WireType.Varint).bool(message.notEmpty);
+        /* optional int32 minLength = 6; */
+        if (message.minLength !== undefined)
+            writer.tag(6, WireType.Varint).int32(message.minLength);
+        /* optional int32 maxLength = 7; */
+        if (message.maxLength !== undefined)
+            writer.tag(7, WireType.Varint).int32(message.maxLength);
+        /* optional int32 maxLines = 8; */
+        if (message.maxLines !== undefined)
+            writer.tag(8, WireType.Varint).int32(message.maxLines);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message PDUI.PBTextFormField
+ */
+export const PBTextFormField = new PBTextFormField$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class PBFnParameter$Type extends MessageType<PBFnParameter> {
     constructor() {
         super("PDUI.PBFnParameter", [
@@ -789,7 +1103,8 @@ export const PBFn = new PBFn$Type();
 class PBDebugPrint$Type extends MessageType<PBDebugPrint> {
     constructor() {
         super("PDUI.PBDebugPrint", [
-            { no: 1, name: "expression", kind: "message", T: () => PBExpression }
+            { no: 1, name: "expression", kind: "message", T: () => PBExpression },
+            { no: 2, name: "fnExpression", kind: "message", T: () => PBFnExpression }
         ]);
     }
     create(value?: PartialMessage<PBDebugPrint>): PBDebugPrint {
@@ -803,8 +1118,11 @@ class PBDebugPrint$Type extends MessageType<PBDebugPrint> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* PDUI.PBExpression expression */ 1:
+                case /* optional PDUI.PBExpression expression */ 1:
                     message.expression = PBExpression.internalBinaryRead(reader, reader.uint32(), options, message.expression);
+                    break;
+                case /* optional PDUI.PBFnExpression fnExpression */ 2:
+                    message.fnExpression = PBFnExpression.internalBinaryRead(reader, reader.uint32(), options, message.fnExpression);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -818,9 +1136,12 @@ class PBDebugPrint$Type extends MessageType<PBDebugPrint> {
         return message;
     }
     internalBinaryWrite(message: PBDebugPrint, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* PDUI.PBExpression expression = 1; */
+        /* optional PDUI.PBExpression expression = 1; */
         if (message.expression)
             PBExpression.internalBinaryWrite(message.expression, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        /* optional PDUI.PBFnExpression fnExpression = 2; */
+        if (message.fnExpression)
+            PBFnExpression.internalBinaryWrite(message.fnExpression, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -917,6 +1238,100 @@ class PBPopNavigation$Type extends MessageType<PBPopNavigation> {
  */
 export const PBPopNavigation = new PBPopNavigation$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class PBGetFormData$Type extends MessageType<PBGetFormData> {
+    constructor() {
+        super("PDUI.PBGetFormData", [
+            { no: 1, name: "formKey", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<PBGetFormData>): PBGetFormData {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.formKey = "";
+        if (value !== undefined)
+            reflectionMergePartial<PBGetFormData>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PBGetFormData): PBGetFormData {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string formKey */ 1:
+                    message.formKey = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: PBGetFormData, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string formKey = 1; */
+        if (message.formKey !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.formKey);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message PDUI.PBGetFormData
+ */
+export const PBGetFormData = new PBGetFormData$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class PBValidateForm$Type extends MessageType<PBValidateForm> {
+    constructor() {
+        super("PDUI.PBValidateForm", [
+            { no: 1, name: "formKey", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<PBValidateForm>): PBValidateForm {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.formKey = "";
+        if (value !== undefined)
+            reflectionMergePartial<PBValidateForm>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PBValidateForm): PBValidateForm {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string formKey */ 1:
+                    message.formKey = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: PBValidateForm, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string formKey = 1; */
+        if (message.formKey !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.formKey);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message PDUI.PBValidateForm
+ */
+export const PBValidateForm = new PBValidateForm$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class PBFnExpression$Type extends MessageType<PBFnExpression> {
     constructor() {
         super("PDUI.PBFnExpression", [
@@ -924,7 +1339,9 @@ class PBFnExpression$Type extends MessageType<PBFnExpression> {
             { no: 2, name: "genericFn", kind: "message", oneof: "payload", T: () => PBFn },
             { no: 3, name: "debugPrint", kind: "message", oneof: "payload", T: () => PBDebugPrint },
             { no: 4, name: "navigation", kind: "message", oneof: "payload", T: () => PBNavigation },
-            { no: 5, name: "popNavigation", kind: "message", oneof: "payload", T: () => PBPopNavigation }
+            { no: 5, name: "popNavigation", kind: "message", oneof: "payload", T: () => PBPopNavigation },
+            { no: 6, name: "getFormData", kind: "message", oneof: "payload", T: () => PBGetFormData },
+            { no: 7, name: "validateForm", kind: "message", oneof: "payload", T: () => PBValidateForm }
         ]);
     }
     create(value?: PartialMessage<PBFnExpression>): PBFnExpression {
@@ -967,6 +1384,18 @@ class PBFnExpression$Type extends MessageType<PBFnExpression> {
                         popNavigation: PBPopNavigation.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).popNavigation)
                     };
                     break;
+                case /* PDUI.PBGetFormData getFormData */ 6:
+                    message.payload = {
+                        oneofKind: "getFormData",
+                        getFormData: PBGetFormData.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).getFormData)
+                    };
+                    break;
+                case /* PDUI.PBValidateForm validateForm */ 7:
+                    message.payload = {
+                        oneofKind: "validateForm",
+                        validateForm: PBValidateForm.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).validateForm)
+                    };
+                    break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
@@ -994,6 +1423,12 @@ class PBFnExpression$Type extends MessageType<PBFnExpression> {
         /* PDUI.PBPopNavigation popNavigation = 5; */
         if (message.payload.oneofKind === "popNavigation")
             PBPopNavigation.internalBinaryWrite(message.payload.popNavigation, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
+        /* PDUI.PBGetFormData getFormData = 6; */
+        if (message.payload.oneofKind === "getFormData")
+            PBGetFormData.internalBinaryWrite(message.payload.getFormData, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
+        /* PDUI.PBValidateForm validateForm = 7; */
+        if (message.payload.oneofKind === "validateForm")
+            PBValidateForm.internalBinaryWrite(message.payload.validateForm, writer.tag(7, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1016,7 +1451,9 @@ class PBExpression$Type extends MessageType<PBExpression> {
             { no: 6, name: "text", kind: "message", oneof: "payload", T: () => PBText },
             { no: 7, name: "appBar", kind: "message", oneof: "payload", T: () => PBAppBar },
             { no: 8, name: "column", kind: "message", oneof: "payload", T: () => PBColumn },
-            { no: 9, name: "elevatedButton", kind: "message", oneof: "payload", T: () => PBElevatedButton }
+            { no: 9, name: "elevatedButton", kind: "message", oneof: "payload", T: () => PBElevatedButton },
+            { no: 10, name: "form", kind: "message", oneof: "payload", T: () => PBForm },
+            { no: 11, name: "textFormField", kind: "message", oneof: "payload", T: () => PBTextFormField }
         ]);
     }
     create(value?: PartialMessage<PBExpression>): PBExpression {
@@ -1080,6 +1517,18 @@ class PBExpression$Type extends MessageType<PBExpression> {
                         elevatedButton: PBElevatedButton.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).elevatedButton)
                     };
                     break;
+                case /* PDUI.PBForm form */ 10:
+                    message.payload = {
+                        oneofKind: "form",
+                        form: PBForm.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).form)
+                    };
+                    break;
+                case /* PDUI.PBTextFormField textFormField */ 11:
+                    message.payload = {
+                        oneofKind: "textFormField",
+                        textFormField: PBTextFormField.internalBinaryRead(reader, reader.uint32(), options, (message.payload as any).textFormField)
+                    };
+                    break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
@@ -1119,6 +1568,12 @@ class PBExpression$Type extends MessageType<PBExpression> {
         /* PDUI.PBElevatedButton elevatedButton = 9; */
         if (message.payload.oneofKind === "elevatedButton")
             PBElevatedButton.internalBinaryWrite(message.payload.elevatedButton, writer.tag(9, WireType.LengthDelimited).fork(), options).join();
+        /* PDUI.PBForm form = 10; */
+        if (message.payload.oneofKind === "form")
+            PBForm.internalBinaryWrite(message.payload.form, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
+        /* PDUI.PBTextFormField textFormField = 11; */
+        if (message.payload.oneofKind === "textFormField")
+            PBTextFormField.internalBinaryWrite(message.payload.textFormField, writer.tag(11, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

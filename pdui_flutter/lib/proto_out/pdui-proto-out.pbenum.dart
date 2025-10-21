@@ -14,6 +14,34 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class PBKeyboardType extends $pb.ProtobufEnum {
+  static const PBKeyboardType TEXT =
+      PBKeyboardType._(0, _omitEnumNames ? '' : 'TEXT');
+  static const PBKeyboardType EMAIL_ADDRESS =
+      PBKeyboardType._(1, _omitEnumNames ? '' : 'EMAIL_ADDRESS');
+  static const PBKeyboardType NUMBER =
+      PBKeyboardType._(2, _omitEnumNames ? '' : 'NUMBER');
+  static const PBKeyboardType MULTILINE =
+      PBKeyboardType._(3, _omitEnumNames ? '' : 'MULTILINE');
+  static const PBKeyboardType DATE_TIME =
+      PBKeyboardType._(4, _omitEnumNames ? '' : 'DATE_TIME');
+
+  static const $core.List<PBKeyboardType> values = <PBKeyboardType>[
+    TEXT,
+    EMAIL_ADDRESS,
+    NUMBER,
+    MULTILINE,
+    DATE_TIME,
+  ];
+
+  static final $core.List<PBKeyboardType?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static PBKeyboardType? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const PBKeyboardType._(super.value, super.name);
+}
+
 class PBDataType extends $pb.ProtobufEnum {
   static const PBDataType STRING =
       PBDataType._(0, _omitEnumNames ? '' : 'STRING');

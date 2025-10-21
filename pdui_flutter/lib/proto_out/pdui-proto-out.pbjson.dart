@@ -14,6 +14,23 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use pBKeyboardTypeDescriptor instead')
+const PBKeyboardType$json = {
+  '1': 'PBKeyboardType',
+  '2': [
+    {'1': 'TEXT', '2': 0},
+    {'1': 'EMAIL_ADDRESS', '2': 1},
+    {'1': 'NUMBER', '2': 2},
+    {'1': 'MULTILINE', '2': 3},
+    {'1': 'DATE_TIME', '2': 4},
+  ],
+};
+
+/// Descriptor for `PBKeyboardType`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List pBKeyboardTypeDescriptor = $convert.base64Decode(
+    'Cg5QQktleWJvYXJkVHlwZRIICgRURVhUEAASEQoNRU1BSUxfQUREUkVTUxABEgoKBk5VTUJFUh'
+    'ACEg0KCU1VTFRJTElORRADEg0KCURBVEVfVElNRRAE');
+
 @$core.Deprecated('Use pBDataTypeDescriptor instead')
 const PBDataType$json = {
   '1': 'PBDataType',
@@ -152,6 +169,144 @@ final $typed_data.Uint8List pBElevatedButtonDescriptor = $convert.base64Decode(
     'NoaWxkEjIKCW9uUHJlc3NlZBgCIAEoCzIULlBEVUkuUEJGbkV4cHJlc3Npb25SCW9uUHJlc3Nl'
     'ZA==');
 
+@$core.Deprecated('Use pBFormDescriptor instead')
+const PBForm$json = {
+  '1': 'PBForm',
+  '2': [
+    {
+      '1': 'child',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBExpression',
+      '10': 'child'
+    },
+  ],
+};
+
+/// Descriptor for `PBForm`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List pBFormDescriptor = $convert.base64Decode(
+    'CgZQQkZvcm0SKAoFY2hpbGQYASABKAsyEi5QRFVJLlBCRXhwcmVzc2lvblIFY2hpbGQ=');
+
+@$core.Deprecated('Use pBTextFormFieldDecorationDescriptor instead')
+const PBTextFormFieldDecoration$json = {
+  '1': 'PBTextFormFieldDecoration',
+  '2': [
+    {
+      '1': 'labelText',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'labelText',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_labelText'},
+  ],
+};
+
+/// Descriptor for `PBTextFormFieldDecoration`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List pBTextFormFieldDecorationDescriptor =
+    $convert.base64Decode(
+        'ChlQQlRleHRGb3JtRmllbGREZWNvcmF0aW9uEiEKCWxhYmVsVGV4dBgBIAEoCUgAUglsYWJlbF'
+        'RleHSIAQFCDAoKX2xhYmVsVGV4dA==');
+
+@$core.Deprecated('Use pBTextFormFieldDescriptor instead')
+const PBTextFormField$json = {
+  '1': 'PBTextFormField',
+  '2': [
+    {'1': 'formKey', '3': 1, '4': 1, '5': 9, '10': 'formKey'},
+    {
+      '1': 'keyboardType',
+      '3': 2,
+      '4': 1,
+      '5': 14,
+      '6': '.PDUI.PBKeyboardType',
+      '9': 0,
+      '10': 'keyboardType',
+      '17': true
+    },
+    {
+      '1': 'decoration',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBTextFormFieldDecoration',
+      '9': 1,
+      '10': 'decoration',
+      '17': true
+    },
+    {
+      '1': 'obscureText',
+      '3': 4,
+      '4': 1,
+      '5': 8,
+      '9': 2,
+      '10': 'obscureText',
+      '17': true
+    },
+    {
+      '1': 'notEmpty',
+      '3': 5,
+      '4': 1,
+      '5': 8,
+      '9': 3,
+      '10': 'notEmpty',
+      '17': true
+    },
+    {
+      '1': 'minLength',
+      '3': 6,
+      '4': 1,
+      '5': 5,
+      '9': 4,
+      '10': 'minLength',
+      '17': true
+    },
+    {
+      '1': 'maxLength',
+      '3': 7,
+      '4': 1,
+      '5': 5,
+      '9': 5,
+      '10': 'maxLength',
+      '17': true
+    },
+    {
+      '1': 'maxLines',
+      '3': 8,
+      '4': 1,
+      '5': 5,
+      '9': 6,
+      '10': 'maxLines',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_keyboardType'},
+    {'1': '_decoration'},
+    {'1': '_obscureText'},
+    {'1': '_notEmpty'},
+    {'1': '_minLength'},
+    {'1': '_maxLength'},
+    {'1': '_maxLines'},
+  ],
+};
+
+/// Descriptor for `PBTextFormField`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List pBTextFormFieldDescriptor = $convert.base64Decode(
+    'Cg9QQlRleHRGb3JtRmllbGQSGAoHZm9ybUtleRgBIAEoCVIHZm9ybUtleRI9CgxrZXlib2FyZF'
+    'R5cGUYAiABKA4yFC5QRFVJLlBCS2V5Ym9hcmRUeXBlSABSDGtleWJvYXJkVHlwZYgBARJECgpk'
+    'ZWNvcmF0aW9uGAMgASgLMh8uUERVSS5QQlRleHRGb3JtRmllbGREZWNvcmF0aW9uSAFSCmRlY2'
+    '9yYXRpb26IAQESJQoLb2JzY3VyZVRleHQYBCABKAhIAlILb2JzY3VyZVRleHSIAQESHwoIbm90'
+    'RW1wdHkYBSABKAhIA1IIbm90RW1wdHmIAQESIQoJbWluTGVuZ3RoGAYgASgFSARSCW1pbkxlbm'
+    'd0aIgBARIhCgltYXhMZW5ndGgYByABKAVIBVIJbWF4TGVuZ3RoiAEBEh8KCG1heExpbmVzGAgg'
+    'ASgFSAZSCG1heExpbmVziAEBQg8KDV9rZXlib2FyZFR5cGVCDQoLX2RlY29yYXRpb25CDgoMX2'
+    '9ic2N1cmVUZXh0QgsKCV9ub3RFbXB0eUIMCgpfbWluTGVuZ3RoQgwKCl9tYXhMZW5ndGhCCwoJ'
+    'X21heExpbmVz');
+
 @$core.Deprecated('Use pBFnParameterDescriptor instead')
 const PBFnParameter$json = {
   '1': 'PBFnParameter',
@@ -263,15 +418,33 @@ const PBDebugPrint$json = {
       '4': 1,
       '5': 11,
       '6': '.PDUI.PBExpression',
-      '10': 'expression'
+      '9': 0,
+      '10': 'expression',
+      '17': true
     },
+    {
+      '1': 'fnExpression',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBFnExpression',
+      '9': 1,
+      '10': 'fnExpression',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_expression'},
+    {'1': '_fnExpression'},
   ],
 };
 
 /// Descriptor for `PBDebugPrint`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List pBDebugPrintDescriptor = $convert.base64Decode(
-    'CgxQQkRlYnVnUHJpbnQSMgoKZXhwcmVzc2lvbhgBIAEoCzISLlBEVUkuUEJFeHByZXNzaW9uUg'
-    'pleHByZXNzaW9u');
+    'CgxQQkRlYnVnUHJpbnQSNwoKZXhwcmVzc2lvbhgBIAEoCzISLlBEVUkuUEJFeHByZXNzaW9uSA'
+    'BSCmV4cHJlc3Npb26IAQESPQoMZm5FeHByZXNzaW9uGAIgASgLMhQuUERVSS5QQkZuRXhwcmVz'
+    'c2lvbkgBUgxmbkV4cHJlc3Npb26IAQFCDQoLX2V4cHJlc3Npb25CDwoNX2ZuRXhwcmVzc2lvbg'
+    '==');
 
 @$core.Deprecated('Use pBNavigationDescriptor instead')
 const PBNavigation$json = {
@@ -293,6 +466,30 @@ const PBPopNavigation$json = {
 /// Descriptor for `PBPopNavigation`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List pBPopNavigationDescriptor =
     $convert.base64Decode('Cg9QQlBvcE5hdmlnYXRpb24=');
+
+@$core.Deprecated('Use pBGetFormDataDescriptor instead')
+const PBGetFormData$json = {
+  '1': 'PBGetFormData',
+  '2': [
+    {'1': 'formKey', '3': 1, '4': 1, '5': 9, '10': 'formKey'},
+  ],
+};
+
+/// Descriptor for `PBGetFormData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List pBGetFormDataDescriptor = $convert
+    .base64Decode('Cg1QQkdldEZvcm1EYXRhEhgKB2Zvcm1LZXkYASABKAlSB2Zvcm1LZXk=');
+
+@$core.Deprecated('Use pBValidateFormDescriptor instead')
+const PBValidateForm$json = {
+  '1': 'PBValidateForm',
+  '2': [
+    {'1': 'formKey', '3': 1, '4': 1, '5': 9, '10': 'formKey'},
+  ],
+};
+
+/// Descriptor for `PBValidateForm`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List pBValidateFormDescriptor = $convert
+    .base64Decode('Cg5QQlZhbGlkYXRlRm9ybRIYCgdmb3JtS2V5GAEgASgJUgdmb3JtS2V5');
 
 @$core.Deprecated('Use pBFnExpressionDescriptor instead')
 const PBFnExpression$json = {
@@ -335,6 +532,24 @@ const PBFnExpression$json = {
       '9': 0,
       '10': 'popNavigation'
     },
+    {
+      '1': 'getFormData',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBGetFormData',
+      '9': 0,
+      '10': 'getFormData'
+    },
+    {
+      '1': 'validateForm',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBValidateForm',
+      '9': 0,
+      '10': 'validateForm'
+    },
   ],
   '8': [
     {'1': 'payload'},
@@ -347,7 +562,9 @@ final $typed_data.Uint8List pBFnExpressionDescriptor = $convert.base64Decode(
     'ZuGAIgASgLMgouUERVSS5QQkZuSABSCWdlbmVyaWNGbhI0CgpkZWJ1Z1ByaW50GAMgASgLMhIu'
     'UERVSS5QQkRlYnVnUHJpbnRIAFIKZGVidWdQcmludBI0CgpuYXZpZ2F0aW9uGAQgASgLMhIuUE'
     'RVSS5QQk5hdmlnYXRpb25IAFIKbmF2aWdhdGlvbhI9Cg1wb3BOYXZpZ2F0aW9uGAUgASgLMhUu'
-    'UERVSS5QQlBvcE5hdmlnYXRpb25IAFINcG9wTmF2aWdhdGlvbkIJCgdwYXlsb2Fk');
+    'UERVSS5QQlBvcE5hdmlnYXRpb25IAFINcG9wTmF2aWdhdGlvbhI3CgtnZXRGb3JtRGF0YRgGIA'
+    'EoCzITLlBEVUkuUEJHZXRGb3JtRGF0YUgAUgtnZXRGb3JtRGF0YRI6Cgx2YWxpZGF0ZUZvcm0Y'
+    'ByABKAsyFC5QRFVJLlBCVmFsaWRhdGVGb3JtSABSDHZhbGlkYXRlRm9ybUIJCgdwYXlsb2Fk');
 
 @$core.Deprecated('Use pBExpressionDescriptor instead')
 const PBExpression$json = {
@@ -410,6 +627,24 @@ const PBExpression$json = {
       '9': 0,
       '10': 'elevatedButton'
     },
+    {
+      '1': 'form',
+      '3': 10,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBForm',
+      '9': 0,
+      '10': 'form'
+    },
+    {
+      '1': 'textFormField',
+      '3': 11,
+      '4': 1,
+      '5': 11,
+      '6': '.PDUI.PBTextFormField',
+      '9': 0,
+      '10': 'textFormField'
+    },
   ],
   '8': [
     {'1': 'payload'},
@@ -425,5 +660,6 @@ final $typed_data.Uint8List pBExpressionDescriptor = $convert.base64Decode(
     'VJLlBCQ2VudGVySABSBmNlbnRlchIiCgR0ZXh0GAYgASgLMgwuUERVSS5QQlRleHRIAFIEdGV4'
     'dBIoCgZhcHBCYXIYByABKAsyDi5QRFVJLlBCQXBwQmFySABSBmFwcEJhchIoCgZjb2x1bW4YCC'
     'ABKAsyDi5QRFVJLlBCQ29sdW1uSABSBmNvbHVtbhJACg5lbGV2YXRlZEJ1dHRvbhgJIAEoCzIW'
-    'LlBEVUkuUEJFbGV2YXRlZEJ1dHRvbkgAUg5lbGV2YXRlZEJ1dHRvbkIJCgdwYXlsb2FkQgYKBF'
-    '9rZXk=');
+    'LlBEVUkuUEJFbGV2YXRlZEJ1dHRvbkgAUg5lbGV2YXRlZEJ1dHRvbhIiCgRmb3JtGAogASgLMg'
+    'wuUERVSS5QQkZvcm1IAFIEZm9ybRI9Cg10ZXh0Rm9ybUZpZWxkGAsgASgLMhUuUERVSS5QQlRl'
+    'eHRGb3JtRmllbGRIAFINdGV4dEZvcm1GaWVsZEIJCgdwYXlsb2FkQgYKBF9rZXk=');

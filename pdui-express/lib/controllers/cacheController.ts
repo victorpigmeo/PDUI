@@ -38,5 +38,4 @@ export async function invalidateCache(request: Request, response: Response) {
                 response.status(500).json({ cacheInvalidated: false });
             });
     }
-    response.status(200).send("");
 }

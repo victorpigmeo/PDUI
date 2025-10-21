@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart';
 
+import '../core/pdui.dart';
 import '../http_client/pdui_http_client.dart';
 import '../proto_out/pdui-proto-out.pb.dart';
 import '../core/pdui_expression.dart';
@@ -29,6 +30,7 @@ class _PduiScreenState extends State<PduiScreen> {
 
   @override
   void initState() {
+    Pdui.useCache = widget.useCache;
     super.initState();
     fetchExpression();
   }

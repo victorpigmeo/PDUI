@@ -4,8 +4,10 @@ import type {
     PBColumn,
     PBElevatedButton,
     PBExpression,
+    PBForm,
     PBScaffold,
     PBText,
+    PBTextFormField,
 } from "../proto-out/pdui-proto-out.ts";
 
 export abstract class PDUIWidget implements PBExpression {
@@ -18,6 +20,11 @@ export abstract class PDUIWidget implements PBExpression {
         | { oneofKind: "appBar"; appBar: PBAppBar }
         | { oneofKind: "column"; column: PBColumn }
         | { oneofKind: "elevatedButton"; elevatedButton: PBElevatedButton }
+        | { oneofKind: "form"; form: PBForm }
+        | {
+              oneofKind: "textFormField";
+              textFormField: PBTextFormField;
+          }
         | { oneofKind: undefined };
 
     constructor({
@@ -34,6 +41,11 @@ export abstract class PDUIWidget implements PBExpression {
             | { oneofKind: "appBar"; appBar: PBAppBar }
             | { oneofKind: "column"; column: PBColumn }
             | { oneofKind: "elevatedButton"; elevatedButton: PBElevatedButton }
+            | { oneofKind: "form"; form: PBForm }
+            | {
+                  oneofKind: "textFormField";
+                  textFormField: PBTextFormField;
+              }
             | { oneofKind: undefined };
     }) {
         this.key = key;

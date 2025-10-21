@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pdui_flutter/core/pdui_expression_parser.dart';
+import 'package:pdui_flutter/core/pdui_expression_resolver.dart';
 import 'package:pdui_flutter/proto_out/pdui-proto-out.pb.dart';
 import 'package:test/test.dart';
 

@@ -85,6 +85,7 @@ export async function start({
             "/pdui/invalidate-cache/:expressionId",
             invalidateCache,
         );
+        pduiRoutes.delete("/pdui/invalidate-cache", invalidateCache);
 
         application.use(pduiRoutes);
 

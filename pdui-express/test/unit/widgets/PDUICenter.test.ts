@@ -64,7 +64,18 @@ describe("PDUICenter test", () => {
         expect(center.child).toStrictEqual(elevatedButton);
 
         expect(center.toPB()).toStrictEqual({
-            child: { child: { data: "Press me" } },
+            child: {
+                child: { data: "Press me" },
+                onPressed: {
+                    expression: {
+                        identity: "string",
+                        payload: {
+                            oneofKind: "rawString",
+                            rawString: "Test Debug Print",
+                        },
+                    },
+                },
+            },
         });
 
         expect(center.toExpression()).toStrictEqual({
@@ -142,7 +153,18 @@ describe("PDUICenter test", () => {
             child: {
                 children: [
                     { data: "Center this!" },
-                    { child: { data: "Press me" } },
+                    {
+                        child: { data: "Press me" },
+                        onPressed: {
+                            expression: {
+                                identity: "string",
+                                payload: {
+                                    oneofKind: "rawString",
+                                    rawString: "Test Debug Print",
+                                },
+                            },
+                        },
+                    },
                 ],
             },
         });

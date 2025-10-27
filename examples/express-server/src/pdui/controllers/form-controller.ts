@@ -72,7 +72,7 @@ export class FormController {
                                 key: "textField_5",
                                 maxLength: 12,
                                 decoration: new PDUITextFormFieldDecoration({
-                                    labelText: "Username",
+                                    labelText: "Name",
                                 }),
                                 // validator: () => {
                                 //     const steps = [];

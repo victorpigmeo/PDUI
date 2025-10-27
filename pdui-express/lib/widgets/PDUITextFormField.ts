@@ -9,9 +9,11 @@ export class PDUITextFormField extends PDUIWidget {
     decoration?: PDUITextFormFieldDecoration;
     obscureText?: boolean;
     notEmpty?: boolean;
-    minLength?: number;
+    //TODO:
+    // minLength?: number;
     maxLength?: number;
     maxLines?: number;
+    //TODO:
     // validator: PDUIGenericFn;
 
     constructor({
@@ -21,7 +23,7 @@ export class PDUITextFormField extends PDUIWidget {
         decoration,
         obscureText,
         notEmpty,
-        minLength,
+        // minLength,
         maxLength,
         maxLines,
     }: {
@@ -31,7 +33,6 @@ export class PDUITextFormField extends PDUIWidget {
         decoration?: PDUITextFormFieldDecoration;
         obscureText?: boolean;
         notEmpty?: boolean;
-        minLength?: number;
         maxLength?: number;
         maxLines?: number;
     }) {
@@ -47,7 +48,6 @@ export class PDUITextFormField extends PDUIWidget {
                     decoration: decoration ? decoration.toPB() : {},
                     obscureText: obscureText,
                     notEmpty: notEmpty,
-                    minLength: minLength,
                     maxLength: maxLength,
                     maxLines: maxLines,
                 },
@@ -59,7 +59,6 @@ export class PDUITextFormField extends PDUIWidget {
         this.decoration = decoration;
         this.obscureText = obscureText;
         this.notEmpty = notEmpty;
-        this.minLength = minLength;
         this.maxLength = maxLength;
         this.maxLines = maxLines;
     }
@@ -71,7 +70,6 @@ export class PDUITextFormField extends PDUIWidget {
             decoration: this.decoration ? this.decoration.toPB() : {},
             obscureText: this.obscureText,
             notEmpty: this.notEmpty,
-            minLength: this.minLength,
             maxLength: this.maxLength,
             maxLines: this.maxLines,
         };
@@ -89,7 +87,6 @@ export class PDUITextFormField extends PDUIWidget {
                     decoration: this.decoration ? this.decoration.toPB() : {},
                     obscureText: this.obscureText,
                     notEmpty: this.notEmpty,
-                    minLength: this.minLength,
                     maxLength: this.maxLength,
                     maxLines: this.maxLines,
                 },

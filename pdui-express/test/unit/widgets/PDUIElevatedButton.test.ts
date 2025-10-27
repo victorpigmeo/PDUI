@@ -20,7 +20,18 @@ describe("PDUIElevatedButton test", () => {
         expect(elevatedButton.child).toStrictEqual(buttonText);
 
         expect(elevatedButton.toPB()).toStrictEqual({
-            child: { data: "Press me" },
+            child: {
+                data: "Press me",
+            },
+            onPressed: {
+                expression: {
+                    identity: "string",
+                    payload: {
+                        oneofKind: "rawString",
+                        rawString: "Test Debug Print",
+                    },
+                },
+            },
         });
 
         expect(elevatedButton.toExpression()).toStrictEqual({
